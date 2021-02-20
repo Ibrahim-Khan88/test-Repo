@@ -1,3 +1,0 @@
-function myfun(){
-    alert("test ");
-}
