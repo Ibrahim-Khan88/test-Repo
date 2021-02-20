@@ -1,0 +1,27 @@
+[
+    {
+        "name": "BIOCHEMISTRY",
+        "type": "Parameter",
+        "id": 1
+    },
+    {
+        "name": "X-RAY",
+        "type": "Individual",
+        "id": 2
+    },
+    {
+        "name": "MOLECULAR",
+        "type": "Individual",
+        "id": 3
+    },
+    {
+        "name": "Dept",
+        "type": "List",
+        "id": 4
+    },
+    {
+        "name": "ParameterTypeDepartment",
+        "type": "Parameter",
+        "id": 5
+    }
+]

@@ -1,0 +1,174 @@
+/* Side bar  */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidebar {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  left: -250px;
+  top: 0px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+  transition: all .4s ease;
+  z-index: 1110;
+}
+
+.sidebar header {
+  font-size: 26px;
+  color: white;
+  font-weight: 700;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  /* background-color: rgb(117, 105, 228); */
+  user-select: none;
+}
+
+.sidebar img {
+  height: 40px;
+  width: 120px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.sidebar ul a {
+  list-style: none;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  transition: .4s;
+}
+
+ul li:hover a {
+  padding-left: 50px;
+  cursor: pointer;
+}
+
+.sidebar ul a i {
+  margin-right: 16px;
+}
+
+/*#check{
+  display: none;
+  }*/
+
+label #btn, label #cancel {
+  position: absolute;
+  /* background: #042331; */
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+label #btn {
+  left: 250px;
+  top: 25px;
+  font-size: 35px;
+  color: white;
+  padding: 6px 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .5s;
+}
+
+label #cancel {
+  z-index: 1111;
+  left: -210px;
+  top: 0px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+
+label #cancel:hover {
+  color: white;
+}
+
+/*#check:checked ~ .sidebar{
+  left: -250px;
+}
+#check:checked ~ label #btn{
+  left: 40px;
+  opacity: 1;
+  pointer-events: auto;
+}
+#check:checked ~ label #cancel{
+  left: -195px;
+  }*/
+
+/*
+#check:checked ~ section{
+  margin-left: 0px;
+}
+
+section{
+  background: url(bg.jpeg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all .5s;
+  margin-left: -250px;
+  }
+  
+  End of Side bar
+
+*/
+
+#hospital-title {
+  width: 100%;
+  padding: 8px 50px;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background-color: rgb(8, 104, 133);
+}
+
+.allContainer {
+  height: 90px;
+  width: 100%;
+  background-color: rgb(18, 131, 164);
+  position: relative;
+  top: 0px;
+  transition: .45s;
+  /* margin-left: 250px; */
+}
+
+.logo {
+  position: absolute;
+  margin: auto;
+  left: 5%;
+  top: 70%;
+  transform: translate(0%, -50%);
+}
+
+.allContainer i {
+  position: absolute;
+  margin: auto;
+  left: 20%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}

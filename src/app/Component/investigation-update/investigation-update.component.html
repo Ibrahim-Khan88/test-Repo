@@ -1,0 +1,730 @@
+<div class="home">
+    <div id="home-title"> Home -> Update Investigation</div>
+</div>
+
+
+
+
+<div id="All-data-Container">
+
+
+
+    <div style="width: 95%; margin: auto;">
+        <div class="section-title">
+            <h2 id="title-section">Investigation</h2>
+        </div>
+    </div>
+
+
+    <div class="All-wrapper">
+        <form [formGroup]="investigationForm" (ngSubmit)="investigationFormSubmit()" id="form">
+            <div>
+                <div class="wrapper">
+                    <div class="card">
+
+                        <div class="card-body">
+
+
+
+
+                            <div class="form-row">
+
+                                <div class="name">Investigation Name</div>
+
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input
+                                            [ngClass]="{'borderRed' : investigationForm.get('name').errors &&
+                                                (investigationForm.get('name').touched || investigationForm.get('name').dirty)}"
+                                            formControlName="name" class="input--style-5" type="text" name="company">
+                                    </div>
+                                    <span
+                                        *ngIf="investigationForm.get('name').errors &&
+                                                                (investigationForm.get('name').touched || investigationForm.get('name').dirty)">
+                                        <span *ngIf="investigationForm.get('name').errors.required">Investigation name
+                                            is
+                                            required</span>
+                                    </span>
+                                </div>
+
+
+
+
+                                <div class="name margin_left">Reference Value</div>
+                                <div class="value">
+                                    <div class=" input-group">
+                                        <!-- <textarea formControlName="refValue" class="input--style-5 textarea"
+                                                type="email" name="email"></textarea> -->
+                                        <input formControlName="refValue" class="input--style-5" type="text"
+                                            name="company">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="form-row">
+                                <div class="name">Unit</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input formControlName="unit" class="input--style-5" type="text" name="company">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="name margin_left">Speciman</div>
+                                <div class="value">
+                                    <div class="input-group">
+
+                                        <select formControlName="speciman" style="height: 35px; width: 100%;"
+                                            class=" input--style-5"
+                                            [ngClass]="{'borderRed' : investigationForm.get('speciman').errors &&
+                                         (investigationForm.get('speciman').touched || investigationForm.get('speciman').dirty)}">
+                                            <option *ngFor="let data of specimenArray" [value]='data.id'>{{data.name}}
+                                            </option>
+                                            <!-- <option>dfghjjkljtr</option>
+                                        <option>dfghjjkljtr</option>
+                                        <option>dfghjjkljtr</option> -->
+
+                                        </select>
+                                    </div>
+                                    <span
+                                        *ngIf="investigationForm.get('speciman').errors &&
+                                     (investigationForm.get('speciman').touched || investigationForm.get('speciman').dirty)">
+                                        <span *ngIf="investigationForm.get('speciman').errors.required">Select
+                                            Speciman </span>
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="form-row">
+                                <div class="name">Rate</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input
+                                            [ngClass]="{'borderRed' : investigationForm.get('rate').errors &&
+                                                (investigationForm.get('rate').touched || investigationForm.get('rate').dirty)}"
+                                            formControlName="rate" class="input--style-5" type="number" name="company">
+                                    </div>
+                                    <span
+                                        *ngIf="investigationForm.get('rate').errors &&
+                                                        (investigationForm.get('rate').touched || investigationForm.get('rate').dirty)">
+                                        <span *ngIf="investigationForm.get('rate').errors.required">Rate is
+                                            required</span>
+                                    </span>
+                                </div>
+
+
+
+                                <div class="name margin_left">Department</div>
+                                <div class="value">
+                                    <div class="input-group">
+
+                                        <select (change)="paramGroupPopUpOpenFromDepartment($event.target.value)"
+                                            formControlName="department" style="height: 35px; width: 100%;"
+                                            class=" input--style-5"
+                                            [ngClass]="{'borderRed' : investigationForm.get('department').errors &&
+                                         (investigationForm.get('department').touched || investigationForm.get('department').dirty)}">
+                                            <option *ngFor="let data of departmentArray; index as i" [value]='i'>
+                                                {{data.name}}
+                                            </option>
+                                            <!-- <option>dfghjjkljtr</option>
+                                        <option>dfghjjkljtr</option>
+                                        <option>dfghjjkljtr</option> -->
+
+                                        </select>
+                                    </div>
+                                    <span
+                                        *ngIf="investigationForm.get('department').errors &&
+                                     (investigationForm.get('department').touched || investigationForm.get('department').dirty)">
+                                        <span *ngIf="investigationForm.get('department').errors.required">Select
+                                            Department </span>
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-row">
+                                <div class="name">Discount Percent</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input formControlName="discountPer" class="input--style-5" type="number"
+                                            name="company">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="name margin_left">Sub Group</div>
+                                <div class="value">
+                                    <div class="input-group">
+
+                                        <select (change)="paramGroupPopUpOpenFromSubgroup()" formControlName="subGroup"
+                                            style="height: 35px; width: 100%;" class="input--style-5"
+                                            [ngClass]="{'borderRed' : investigationForm.get('subGroup').errors &&
+                                         (investigationForm.get('subGroup').touched || investigationForm.get('subGroup').dirty)}">
+                                            <option *ngFor="let data of subGrouppArray" [value]='data.id'>{{data.name}}
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                    <span
+                                        *ngIf="investigationForm.get('subGroup').errors &&
+                                     (investigationForm.get('subGroup').touched || investigationForm.get('subGroup').dirty)">
+                                        <span *ngIf="investigationForm.get('subGroup').errors.required">Select
+                                            Sub Group </span>
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="form-row">
+                                <div class="name">Discount Amount</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input formControlName="discountAmount" class="input--style-5" type="number"
+                                            name="company">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="name margin_left">Input Type</div>
+                                <div class="value">
+                                    <div class=" input-group">
+                                        <select formControlName="resultType" style="height: 35px; width: 100%;"
+                                            class=" input--style-5"
+                                            [ngClass]="{'borderRed' : investigationForm.get('resultType').errors &&
+                                     (investigationForm.get('resultType').touched || investigationForm.get('resultType').dirty)}">
+                                            <option value="Input"> Input </option>
+                                            <option value="DropDown"> Drop Down </option>
+                                        </select>
+                                    </div>
+
+                                    <span
+                                        *ngIf="investigationForm.get('resultType').errors &&
+                                     (investigationForm.get('resultType').touched || investigationForm.get('resultType').dirty)">
+                                        <span *ngIf="investigationForm.get('resultType').errors.required">Select
+                                            Input Type </span>
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-row">
+
+                                <div class="name">Selection Code</div>
+
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input formControlName="selectionCode" class="input--style-5" type="text"
+                                            name="company">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="name margin_left">Sorting Id</div>
+                                <div class="value">
+                                    <div class=" input-group">
+                                        <input formControlName="sortingId" class="input--style-5" type="text"
+                                            [ngClass]="{'borderRed' : investigationForm.get('sortingId').errors &&
+                                        (investigationForm.get('sortingId').touched || investigationForm.get('sortingId').dirty)}">
+                                    </div>
+
+                                    <span
+                                        *ngIf="investigationForm.get('sortingId').errors &&
+                                     (investigationForm.get('sortingId').touched || investigationForm.get('sortingId').dirty)">
+                                        <span *ngIf="investigationForm.get('sortingId').errors.required">Select
+                                            SortingId </span>
+                                    </span>
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+
+                            <div class="form-row">
+
+                                <div class="name">Code</div>
+
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input formControlName="code" class="input--style-5" type="text" name="company">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="name margin_left">Vat</div>
+                                <div class="value">
+                                    <div class=" input-group">
+                                        <input formControlName="vatApplyAmount" class="input--style-5" type="text"
+                                            name="company">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="name">Accessories</div>
+
+                                <div class="value">
+                                    <div class="input-group">
+                                        <button type="button" (click)="addAccessoriesOpen()" class="btn btn--blue"
+                                            style="width: 100%; margin: 0;">Add Accessories</button>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="name margin_left">Format</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <button type="button" (click)="addFormat()" class="btn btn--blue"
+                                            style="width: 100%; margin: 0;">Add Format</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+                            <div class="form-row">
+
+                                <div class="name">Description</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <textarea formControlName="description" class="input--style-5 textarea"
+                                            type="text" name="company"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="name margin_left">Short Note</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <textarea formControlName="note" class="input--style-5 textarea" type="text"
+                                            name="company"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div *ngIf="isDepartmentParameterType && isSubgroupSelected" class="form-row">
+
+                                <div class="name">Param Group</div>
+
+                                <div class="value">
+                                    <div class="input-group">
+                                        <button type="button" (click)="paramGroupPopUpOpen()" class="btn btn--blue"
+                                            style="width: 100%; margin: 0;">Add Param Group</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+                            <div *ngIf="selectedParameter != null && selectedParameter.length > 0"
+                                id="selected-parameter-table">
+
+                                <div class="form-row">
+                                    <div class="name">Selected Parameter</div>
+                                </div>
+
+                                <table>
+                                    <tr>
+                                        <th>Number</th>
+                                        <th>Param Group name</th>
+                                        <th>Parameter name</th>
+                                        <th style="text-align: center;">Delete</th>
+                                    </tr>
+
+                                    <tr *ngFor="let parameter of selectedParameter; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>{{parameter.paramGroup.name}}</td>
+                                        <td>{{parameter.name}}</td>
+                                        <td style="text-align: center;">
+                                            <button style="margin: 0;" type="button"
+                                                (click)="deleteSelectedParameter(parameter)"
+                                                class="btn btn--blue">Delete</button>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
+
+
+
+                            <div style="margin-bottom: 20px;">
+                                <button type="button" (click)="investigationFormSubmit()" value="Next"
+                                    class="btn btn--radius-2 btn--blue">Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div id="param-group-popup">
+    <a id="param-group-popup-close">&times;</a>
+
+    <div *ngIf="paramOrParameterShow" style="width: 90%; margin: auto; margin-top: 15px;">
+        <div style="width: 100%; margin: auto;">
+            <div class="section-title">
+                <h2 id="title-section">
+                    Seleect Param Group</h2>
+            </div>
+        </div>
+
+
+        <div style="height: 340px; overflow-y: scroll; overflow-x: hidden;">
+            <table id="param-group-table">
+                <tr>
+                    <th>Param Group</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let paramGroup of paramGroupArray; index as i" (click)="openParameter(i)">
+                    <td>{{paramGroup.name}}</td>
+                    <td><i style="margin-right: 10px; color: blue;" class="fas fa-arrow-right"></i></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button (click)="addALlParamGroup()" style="margin: 20px 0px;" class="btn  btn--radius-2 btn--blue">Add
+                all</button>
+        </div>
+    </div>
+
+
+
+    <div *ngIf="!paramOrParameterShow" style="width: 90%; margin: auto; margin-top: 15px;">
+        <div style="width: 100%; margin: auto;">
+            <div class="section-title">
+                <h2 id="title-section">
+                    Select Parameters</h2>
+            </div>
+        </div>
+
+        <div style="height: 340px; overflow-y: scroll; overflow-x: hidden;">
+            <table id="param-group-table">
+                <tr>
+                    <th>Parameters</th>
+                    <th></th>
+                </tr>
+                <!-- <tr *ngFor="let parameter of paramGroupArray[selectedParamGroupIndex].parameters; index as i " (click)="openParameter(i)">
+                <td>{{parameter.name}}</td>
+                <td style="position: relative;"><input 
+                        class="parameter-checkbox" type="checkbox" ></td>
+            </tr> -->
+
+                <tr *ngFor="let parameter of paramGroupArray[selectedParamGroupIndex].parameters; index as i">
+                    <td>{{parameter.name}}</td>
+                    <td style="position: relative;"><input (change)="getParameterSelected($event,parameter)"
+                            class="parameter-checkbox" type="checkbox"></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="button-container">
+
+            <button (click)="backParamGroup()" style="margin: 20px 0px; margin-right: 30px;"
+                class="btn  btn--radius-2 btn--blue">Back</button>
+            <button (click)="saveParameter()" style="margin: 20px 0px;"
+                class="btn  btn--radius-2 btn--blue">Save</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div id="accessories-popup">
+    <a id="accessories-popup-close">&times;</a>
+
+    <div style="width: 90%; margin: auto; margin-top: 15px;">
+        <div style="width: 100%; margin: auto;">
+            <div class="section-title">
+                <h2 id="title-section">
+                    Seleect Accessories</h2>
+            </div>
+        </div>
+
+        <div style="height: 340px; overflow-y: scroll; overflow-x: hidden;">
+            <table id="param-group-table">
+                <tr>
+                    <th>Accessories</th>
+                    <th>Amount</th>
+                    <th style="padding-right: 10px;">Select</th>
+                </tr>
+                <tr *ngFor="let accessories of accessoriesArray; index as i">
+                    <td>{{accessories.name}}</td>
+                    <td>{{accessories.amount}}</td>
+                    <td style="position: relative;"><input (change)="getAccessoriesSelected($event,accessories)"
+                            class="parameter-checkbox" type="checkbox"></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button (click)="addAccessories()" style="margin: 20px 0px;" class="btn  btn--radius-2 btn--blue">
+                Save</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="format-popup">
+    <a id="format-popup-close">&times;</a>
+
+    <div style="width: 90%; margin: auto;">
+        <div style="width: 100%; margin: auto; margin-bottom: 20px;">
+            <div class="section-title">
+                <h2 id="title-section">
+                    Investigation Format</h2>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <quill-editor [(ngModel)]="formatValue" [styles]="editorStyle"></quill-editor>
+        </div>
+        <button (click)="formatSave()" style="margin-bottom: 10px; margin-top: 10px;"
+            class="btn btn--blue">Submit</button>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+<div id="lodingDiv">
+    <i class="fas fa-circle-notch fa-spin"></i>
+    <div> loading </div>
+</div>
+
+
+<div id="backgroundloding">
+    <!-- <i style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+    font-size: 30px; color: white;" class="fas fa-circle-notch fa-spin"></i> -->
+</div>
+
+
+
+
+
+
+
+<!-- <h3 class="titleheading">Add New Investigation</h3>
+
+<div class="page-wrapper p-b-50">
+    <div class="wrapper wrapper--w700">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Give information</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="investigationForm" (ngSubmit)="investigationFormSubmit(investigationForm.value)">
+
+
+                    <div class="form-row">
+
+                        <div class="name">Investigation Name</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input [ngClass]="{'borderRed' : investigationForm.get('name').errors &&
+                        (investigationForm.get('name').touched || investigationForm.get('name').dirty)}"
+                                    formControlName="name" class="input--style-5" type="text" name="company">
+                            </div>
+                            <span 
+                                *ngIf="investigationForm.get('name').errors &&
+                                        (investigationForm.get('name').touched || investigationForm.get('name').dirty)">
+                                <span *ngIf="investigationForm.get('name').errors.required">Investigation name is required</span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Rate</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input [ngClass]="{'borderRed' : investigationForm.get('rate').errors &&
+                        (investigationForm.get('rate').touched || investigationForm.get('rate').dirty)}"
+                                    formControlName="rate" class="input--style-5" type="text" name="company">
+                            </div>
+                            <span 
+                                *ngIf="investigationForm.get('rate').errors &&
+                                (investigationForm.get('rate').touched || investigationForm.get('rate').dirty)">
+                                <span *ngIf="investigationForm.get('rate').errors.required">Rate is required</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Format</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <textarea [ngClass]="{'borderRed' : investigationForm.get('format').errors &&
+                        (investigationForm.get('format').touched || investigationForm.get('format').dirty)}"
+                                    formControlName="format" class="input--style-5" type="text"
+                                    name="company"></textarea>
+                            </div>
+                            <span
+                                *ngIf="investigationForm.get('format').errors &&
+                                (investigationForm.get('format').touched || investigationForm.get('format').dirty)">
+                                <span *ngIf="investigationForm.get('format').errors.required">Format is required</span>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="name">Reference Value</div>
+                        <div class="value">
+                            <div class="input-border-under-class input-group">
+                                <textarea [ngClass]="{'borderRed' : investigationForm.get('refValue').errors &&
+                        (investigationForm.get('refValue').touched || investigationForm.get('refValue').dirty)}"
+                                    formControlName="refValue" class="input--style-5" type="email"
+                                    name="email"></textarea>
+                            </div>
+                            <span 
+                                *ngIf="investigationForm.get('refValue').errors &&
+                                (investigationForm.get('refValue').touched || investigationForm.get('refValue').dirty)">
+                                <span *ngIf="investigationForm.get('refValue').errors.required">Reference Value is required</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Categiory Name</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+
+                                <select formControlName="category"
+                                    class="input-border-under-class input--style-5 selectSample" [ngClass]="{'borderRed' : investigationForm.get('category').errors &&
+                        (investigationForm.get('category').touched || investigationForm.get('category').dirty)}">
+                                    <option *ngFor="let data of categoryArray" [value]='data.id'>{{data.name}}</option>
+                                </select>
+                            </div>
+                            <span 
+                                *ngIf="investigationForm.get('category').errors &&
+                                    (investigationForm.get('category').touched || investigationForm.get('category').dirty)">
+                                <span *ngIf="investigationForm.get('category').errors.required">Select sample category  </span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <button type="submit" value="Next" class="btn btn--radius-2 btn--blue">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- [disabled]="!investigationForm.valid" 
+     [ngClass]="{'has_error' : investigationForm.get('name').errors &&
+             
+     (investigationForm.get('name').touched || investigationForm.get('name').dirty)}"
+     
+     
+     .borderRed {
+    border: 1px solid red;
+}
+
+   .value span {
+    font-size: 12px;
+    color: red;
+}                 
+-->
+
+
+
+
+<!-- Pop up message -->
+
+<div class="popup center border-class">
+    <div class="icon">
+        <i class="fa fa-check"></i>
+    </div>
+    <div class="title-pop-up">
+        Successfully save
+    </div>
+    <div class="description">
+    </div>
+    <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+            Dismiss
+        </button>
+    </div>
+</div>
+<!-- <div class="center">
+    <button id="open-popup-btn">
+        Open Popup
+    </button>
+</div> -->

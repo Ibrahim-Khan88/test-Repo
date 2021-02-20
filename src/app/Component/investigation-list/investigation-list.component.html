@@ -1,0 +1,153 @@
+<div class="home">
+    <div id="home-title"> Home -> Investigation List</div>
+</div>
+
+
+<div id="All-data-Container">
+
+
+
+    <div style="width: 95%; margin: auto;">
+        <div class="section-title">
+            <h2 id="title-section">Investigation</h2>
+        </div>
+    </div>
+
+    <div id="tableContainer">
+        <table>
+            <tr>
+
+                <th>Investigations Name</th>
+                <th>Rate</th>
+                <th>Reference Value</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            <tr *ngFor="let variable of investigationList; let i = index ">
+                <td>{{variable.name}}</td>
+                <td>{{variable.rate}}</td>
+                <td>{{variable.refValue}}</td>
+                <td class="link" (click)="updateOpenForm(i)">Update</td>
+                <td class="link" (click)="deleteOpen(variable.id)">Delete</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>
+
+
+
+
+<div id="update-form-popup">
+    <a id="update-form-popup-close">&times;</a>
+
+    <div>
+        <div class="wrapper wrapper--w700">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Update investigation</h2>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="investigationForm" (ngSubmit)="investigationFormSubmit(investigationForm.value)">
+
+
+                        <div class="form-row">
+                            <div class="name">Investigation Name</div>
+                            <div class="value">
+                                <div class="input-group input-border-under-class">
+                                    <input formControlName="name" class="input--style-5" type="text" name="company">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Rate</div>
+                            <div class="value">
+                                <div class="input-group input-border-under-class">
+                                    <input formControlName="rate" class="input--style-5" type="text" name="company">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Format</div>
+                            <div class="value">
+                                <div class="input-group input-border-under-class">
+                                    <textarea formControlName="format" class="input--style-5" type="text" name="company"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="name">Reference Value;</div>
+                            <div class="value">
+                                <div class="input-border-under-class input-group">
+                                    <textarea formControlName="refValue" class="input--style-5" type="email" name="email"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <button type="submit" value="Next" class="btn btn--radius-2 btn--blue">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<!-- delete delete -->
+<div id="delete-warning-popup" class="border-class">
+
+
+    <div class="icon">
+        <i class="fa fas fa-exclamation-triangle"></i>
+    </div>
+
+    <div class="title-pop-up">
+        Investigation will be deleted Permanently!
+    </div>
+
+    <div class="description">
+        Are you sure to proceed?
+    </div>
+
+    <div id="warning-button-container">
+        <button id="warning-cencle" (click)="warningCancle()">Cancel</button>
+        <button id="warning-delete" (click)="delete()">Delete</button>
+    </div> 
+
+</div>
+
+
+
+<!-- Pop up message -->
+
+<div class="popup center border-class">
+    <div class="icon">
+        <i class="fa fa-check"></i>
+    </div>
+    <div class="title-pop-up">
+        {{popupMessage}}
+    </div>
+    <div class="description">
+    </div>
+    <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+            Dismiss
+        </button>
+    </div>
+</div>

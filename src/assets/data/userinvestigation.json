@@ -1,0 +1,68 @@
+[
+    {
+        "department": "BIOCHEMISTRY",
+        "type": "List",
+        "requestList": [
+            {
+                "investigationRequestId": 315,
+                "investigationName": "RBC",
+                "unit": "mg/dl",
+                "format": "mg/dl",
+                "refValue": "7 - 11",
+                "reportResult": ""
+            },
+            {
+                "investigationRequestId": 316,
+                "investigationName": "CBC",
+                "unit": "mg/dl",
+                "format": "mg/dl",
+                "refValue": "7 - 10",
+                "reportResult": "10"
+            },
+            {
+                "investigationRequestId": 317,
+                "investigationName": "CREARINING",
+                "unit": "mg/dl",
+                "format": "mg/dl",
+                "refValue": "7 - 10",
+                "reportResult": "9"
+            }
+        ]
+    },
+    {
+        "department": "MOLECULAR",
+        "type": "Individual",
+        "requestList": [
+            {
+                "investigationRequestId": 318,
+                "investigationName": "HLA",
+                "unit": "mg/dl",
+                "format": "<div style=\" font-size: 10px;\"> <b >FINDINGS :</b> <br> \r\n        No fracture and dislocation is noted <br> \r\n        No bony lession is seen <br> \r\n        Bone density is within limit <br>  <br> \r\n        <b>COMMENT :</b> <br>\r\n        No significant abnormality is detected\r\n        </div>",
+                "refValue": "7 - 10",
+                "reportResult": "<div style=\"font-size: 14px;\"> <b>FINDINGS :</b> <br>One fracture and dislocation is noted <br> \r\n        Two bony lession is seen <br> \r\n        two density is within limit <br>  <br> \r\n        <b>COMMENT :</b> <br>\r\n        No significant abnormality is detected\r\n        </div>"
+            }
+        ]
+    },
+    {
+        "department": "X-RAY",
+        "type": "Individual",
+        "requestList": [
+            {
+                "investigationRequestId": 319,
+                "investigationName": "PALVIS WITH HIPS",
+                "unit": "mg/dl",
+                "format": "mg/dl",
+                "refValue": "7 - 10",
+                "reportResult": "Nagative"
+            },
+            {
+                "investigationRequestId": 320,
+                "investigationName": "ANKLE-LEFT-AP",
+                "unit": "mg/dl",
+                "format": "mg/dl",
+                "refValue": "7 - 10",
+                "reportResult": null
+            }
+        ]
+    }
+]

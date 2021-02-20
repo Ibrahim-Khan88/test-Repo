@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Speciman 1",
+        "description": "Speciman 1",
+        "amout": 100
+    },
+    {
+        "id": 2,
+        "name": "Speciman 2",
+        "description": "Speciman 2",
+        "amout": 200
+    }
+]

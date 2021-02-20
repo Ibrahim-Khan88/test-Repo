@@ -1,0 +1,353 @@
+<div class="page-wrapper p-t-45 p-b-50">
+    <div class="wrapper wrapper--w700">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title"> give information</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="patientRequestForm" (ngSubmit)="patientRequestFormSubmit(patientRequestForm.value)">
+
+                    <!-- [ngClass]="{'borderRed' : patientRequestForm.get('name').errors &&
+                    (patientRequestForm.get('name').touched || patientRequestForm.get('name').dirty)}"
+                    <span
+                        *ngIf="patientRequestForm.get('name').errors && (patientRequestForm.get('name').touched || patientRequestForm.get('name').dirty)">
+                        <span *ngIf="patientRequestForm.get('name').errors.required">Investigation name is
+                            required</span>
+                    </span> -->
+
+                    <div class="form-row">
+                        <div class="name">Name</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input [ngClass]="{'borderRed' : patientRequestForm.get('name').errors &&
+                                 (patientRequestForm.get('name').touched || patientRequestForm.get('name').dirty)}"
+                                    formControlName="name" class="input--style-5" type="text" name="company">
+                            </div>
+                            <span
+                                *ngIf="patientRequestForm.get('name').errors && (patientRequestForm.get('name').touched || patientRequestForm.get('name').dirty)">
+                                <span *ngIf="patientRequestForm.get('name').errors.required">Name is
+                                    required</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Mobile</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input
+                                    [ngClass]="{'borderRed' : patientRequestForm.get('mobile').errors &&
+                                        (patientRequestForm.get('mobile').touched || patientRequestForm.get('mobile').dirty)}"
+                                    formControlName="mobile" class="input--style-5" type="text" name="company">
+                            </div>
+                            <span
+                                *ngIf="patientRequestForm.get('mobile').errors && (patientRequestForm.get('mobile').touched || patientRequestForm.get('mobile').dirty)">
+                                <span *ngIf="patientRequestForm.get('mobile').errors.required">Mobile number is
+                                    required</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Age</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input formControlName="age" class="input--style-5" type="text" name="company">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row ">
+                        <label class="name">Sample Collection</label>
+                        <div class="p-t-15">
+                            <label class="radio-container m-r-55">From Home
+                                <input formControlName="sampleCollection" value="From Home" type="radio"
+                                    checked="checked" name="sampleCollection">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container">From Diagnosis
+                                <input formControlName="sampleCollection" value="From Diagnosis" type="radio"
+                                    name="sampleCollection">
+                                <span class="checkmark"></span>
+                            </label>
+                            <!-- formControlName="sampleCollection" -->
+                        </div>
+                    </div>
+
+
+                    <div class="form-row m-b-55 ">
+                        <div class="name">Appointment Date</div>
+                        <div class="value">
+                            <div class="row ">
+
+                                <div (click)="date.toggle()">
+                                    <div style="margin-top: 40px; width: 220px; "
+                                        class="input-border-under-class input-group input-wrapper">
+                                        <input
+                                            [ngClass]="{'borderRed' : patientRequestForm.get('date').errors &&
+                                        (patientRequestForm.get('date').touched || patientRequestForm.get('date').dirty)}"
+                                            formControlName="date" (click)="date.toggle()" placeholder="yyyy-mm-dd"
+                                            ngbDatepicker #date="ngbDatepicker" class="input--style-5">
+
+                                    </div>
+                                    <div></div>
+                                    <span
+                                        *ngIf="patientRequestForm.get('date').errors && (patientRequestForm.get('date').touched || patientRequestForm.get('date').dirty)">
+                                        <span *ngIf="patientRequestForm.get('date').errors.required">Appointment
+                                            Date is required</span>
+                                    </span>
+                                </div>
+
+                                <!-- <ngb-timepicker formControlName="hour"  [(ngModel)]="timea" [meridian]="true"></ngb-timepicker> -->
+
+                                <div class="small">
+                                    <div class="input-group-desc">
+                                        <ngb-timepicker formControlName="time" [(ngModel)]="defaultTime"
+                                            [meridian]="true"></ngb-timepicker>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-row">
+                        <div class="name">NID/Passport</div>
+
+
+                        <div class="value">
+                            <div class="row ">
+                                <div class="col-6">
+                                    <div class="input-border-under-class input-group-desc">
+                                        <input formControlName="nid" class="input--style-5" type="text"
+                                            name="area_code">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="another">Gender</div>
+                                </div>
+
+                                <div class="col-3">
+                                    <div class=" input-group-desc">
+                                        <select formControlName="gender" name="subject"
+                                            class="input-border-under-class input--style-5" style="height: 35px;">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Other</option>
+                                        </select>
+                                        <!-- <input class="input--style-5" type="text" name="area_code"> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Email</div>
+                        <div class="value">
+                            <div class="input-border-under-class input-group">
+                                <input formControlName="email" class="input--style-5" type="email" name="email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Address</div>
+                        <div class="value">
+                            <div class="input-border-under-class input-group">
+                                <input [ngClass]="{'borderRed' : patientRequestForm.get('address').errors &&
+                            (patientRequestForm.get('address').touched || patientRequestForm.get('address').dirty)}"
+                                    formControlName="address" class="input--style-5" type="text" name="address">
+                            </div>
+                            <span
+                                *ngIf="patientRequestForm.get('address').errors && (patientRequestForm.get('address').touched || patientRequestForm.get('address').dirty)">
+                                <span *ngIf="patientRequestForm.get('address').errors.required">Address is
+                                    required</span>
+                            </span>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <button type="submit" value="Next" class="btn btn--radius-2 btn--blue">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- (click)="nextOpen()" -->
+
+
+<div id="make-space"> </div>
+
+
+
+
+
+<div>
+    <div id="confirm-popup">
+        <a id="confirm-popup-close">&times;</a>
+
+        <div id="information-pop-up">
+
+            <div id="heading">
+                <div style="display: inline-block;  border-bottom: 3px solid Black;">
+                    <h2>Before Confirm See Your Information</h2>
+                </div>
+            </div>
+
+            <div id="service-heading">
+                <div style="display: inline-block;  border-bottom: 2px solid Black;">
+                    <h4>Selected Investigation Services:</h4>
+                </div>
+            </div>
+
+            <div id="tableContainer">
+                <table>
+                    <tr>
+                        <th>Investigations Name</th>
+                        <th>Cost</th>
+                        <th>Discount</th>
+                        <th>Catagory</th>
+                    </tr>
+                    <tr *ngFor="let variable of selectedItemInvestigation; let i = index ">
+                        <td>{{variable.name}}</td>
+                        <td>{{variable.rate}}</td>
+                        <td>10%</td>
+                        <td>{{variable.category.name}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="total-cost">
+                <h4>Total Cost: {{totalCost}} Tk</h4>
+            </div>
+
+
+            <div id="service-heading">
+                <div style="display: inline-block;  border-bottom: 2px solid black;">
+                    <h4>Your Own Information:</h4>
+                </div>
+            </div>
+
+            <div>
+                <div class="wrapper wrapper--w960 ">
+                    <div>
+
+                        <div id="table-form">
+                            <form>
+
+                                <div class="form-row">
+                                    <div class="name">Name</div> {{patient.name}}
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="name">Mobile</div>
+                                    {{patient.mobile}}
+                                </div>
+
+
+                                <div class="form-row ">
+                                    <div class="name">Age</div>
+                                    {{patient.age}}
+                                </div>
+
+
+                                <div class="form-row ">
+                                    <label class="name">Sample Collection</label>
+                                    {{patient.sampleCollection}}
+                                </div>
+
+                                <div class="form-row ">
+                                    <label class="name">Gendern</label>
+                                    {{patient.gender}}
+                                </div>
+
+
+
+                                <div class="form-row">
+                                    <div class="name">Appointment Date</div>
+                                    {{patient.appointmentDate}}
+                                </div>
+
+
+
+
+                                <div class="form-row">
+                                    <div class="name">NID/Passport</div> {{patient.nid}}
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="name">Email</div>
+                                    {{patient.email}}
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="name">Address</div>
+                                    {{patient.address}}
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button (click)="confirmSubmit()" class="btn btn--radius-2 btn--blue">Confirm</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<!-- Pop up message -->
+
+<div id="successfull-popup-icon" class="popup center border-class">
+
+    <div *ngIf="success; else elseBlock">
+        <div class="icon">
+            <i class="fa fa-check"></i>
+        </div>
+        <div class="title-pop-up">
+            Your request is successfully accepted
+        </div>
+    </div>
+
+    <ng-template #elseBlock>
+        <div class="icon">
+            <i class="fa fa-exclamation"></i>
+        </div>
+        <div class="title-pop-up">
+            An error is occured
+        </div>
+    </ng-template>
+
+
+
+    <div class="description">
+    </div>
+
+    <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+            Dismiss
+        </button>
+    </div>
+</div>
+<!-- <div class="center">
+    <button style="z-index: 30;" (click)="dissmissopen(true)" id="open-popup-btn">
+        Open Popup
+    </button>
+</div> -->

@@ -1,0 +1,54 @@
+
+
+<section id="DepartmentView">
+ 
+    <div class='size'>
+       
+        <div style="text-align: left;"><h2 id="Hospital-List">Medical Hospitals</h2></div>
+
+        <div class='row'>
+
+            <div class="col-4 " *ngFor="let diagnostic of DiagonsticDetail; let i = index ">
+                <div class="product-image-wrapper border-under-class">
+                    <div class="single-products">
+                        <div class="productinfo">
+                            <!-- <img class="productphoto" src='/GetBook/Photo/java1.jpg'> -->
+
+                            <div id="contain">
+                                <!-- <div id="slider4"> -->
+
+                                <div class="" id="slider{{i+1}}">
+
+                                    <figure>
+
+                                        <img  src="../assets/medicalCollage/{{diagnostic.imageId}}.jpg">
+                                        <img src="../assets/medicalCollage/{{diagnostic.imageId + 1}}.jpg">
+                                        <img src="../assets/medicalCollage/{{diagnostic.imageId + 2}}.jpg">
+                                        <img src="../assets/medicalCollage/{{diagnostic.imageId + 3}}.jpg">
+                                        <img src="../assets/medicalCollage/{{diagnostic.imageId }}.jpg">
+                                    
+                                  
+
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- <button class="btn btn-primary" id="service">Services</button> -->
+                            <h6 id="name"> {{diagnostic.name}} </h6>        
+
+                        </div>
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+
+                                <a (click)="detail(diagnostic.id)" class="btn btn-primary"><i
+                                        ></i>Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+</section>
+
+<div (click)="detail('yse')"> click me </div>

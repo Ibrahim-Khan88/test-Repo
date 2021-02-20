@@ -1,0 +1,335 @@
+[
+    {
+        "department": "BIOCHEMISTRY",
+        "type": "List",
+        "requestList": [
+            {
+                "investigationRequestId": 28,
+                "investigationName": "CBC",
+                "unit": "ml/gg",
+                "format": "format",
+                "refValue": "7-11",
+                "reportResult": "5",
+                "paramGroupList": []
+            },
+            {
+                "investigationRequestId": 133,
+                "investigationName": "RBC",
+                "unit": "ml/gg",
+                "format": "format",
+                "refValue": "7-11",
+                "reportResult": "5",
+                "paramGroupList": []
+            },
+            {
+                "investigationRequestId": 134,
+                "investigationName": "Creamming",
+                "unit": "ml/gg",
+                "format": "",
+                "refValue": "7-11",
+                "reportResult": "5",
+                "paramGroupList": []
+            }
+        ]
+    },
+    {
+        "department": "ParameterTypeDepartment",
+        "type": "Parameter",
+        "requestList": [
+            {
+                "investigationRequestId": 29,
+                "investigationName": "Test Investigation 2",
+                "unit": "ml/g",
+                "format": "<h1><strong>This is posaitive</strong></h1>",
+                "refValue": "7 - 10",
+                "reportResult": "set",
+                "paramGroupList": [
+                    {
+                        "id": 1,
+                        "name": "Physical Examination",
+                        "headingShow": true,
+                        "parameters": [
+                            {
+                                "id": 2,
+                                "name": "Appearance",
+                                "refValue": "6 - 9",
+                                "unit": "mm/lllllllll",
+                                "resultType": "text",
+                                "reportResult": null,
+                                "shortingId": 4,
+                                "dropDownInput": []
+                            },
+                            {
+                                "id": 1,
+                                "name": "Color",
+                                "refValue": null,
+                                "unit": null,
+                                "resultType": "DropDown",
+                                "reportResult": null,
+                                "shortingId": 10,
+                                "dropDownInput": [
+                                    {
+                                        "id": 1,
+                                        "value": "Staw"
+                                    },
+                                    {
+                                        "id": 2,
+                                        "value": "red"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "value": "green"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Chemical  Examination",
+                        "headingShow": false,
+                        "parameters": [
+                            {
+                                "id": 4,
+                                "name": "Excess of phosphate",
+                                "refValue": null,
+                                "unit": null,
+                                "resultType": "DropDown",
+                                "reportResult": "positive",
+                                "shortingId": 9,
+                                "dropDownInput": [
+                                    {
+                                        "id": 4,
+                                        "value": "positive"
+                                    },
+                                    {
+                                        "id": 5,
+                                        "value": "Nagative"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "Microscopic Examination",
+                        "headingShow": true,
+                        "parameters": [
+                            {
+                                "id": 6,
+                                "name": "Puss cells",
+                                "refValue": "12 - 19",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": null,
+                                "shortingId": 11,
+                                "dropDownInput": []
+                            },
+                            {
+                                "id": 5,
+                                "name": "R.C.B",
+                                "refValue": "2- 9",
+                                "unit": null,
+                                "resultType": "text",
+                                "reportResult": "mm/ll",
+                                "shortingId": 16,
+                                "dropDownInput": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "investigationRequestId": 39,
+                "investigationName": "Test Investigation",
+                "unit": "ml/g",
+                "format": "<h1><strong>this is positive</strong></h1>",
+                "refValue": "4 -10",
+                "reportResult": "set",
+                "paramGroupList": [
+                    {
+                        "id": 1,
+                        "name": "Physical Examination",
+                        "headingShow": true,
+                        "parameters": [
+                            {
+                                "id": 2,
+                                "name": "Appearance",
+                                "refValue": "6 - 9",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": "222",
+                                "shortingId": 4,
+                                "dropDownInput": []
+                            },
+                            {
+                                "id": 1,
+                                "name": "Color",
+                                "refValue": null,
+                                "unit": null,
+                                "resultType": "DropDown",
+                                "reportResult": "Staw",
+                                "shortingId": 10,
+                                "dropDownInput": [
+                                    {
+                                        "id": 1,
+                                        "value": "Staw"
+                                    },
+                                    {
+                                        "id": 2,
+                                        "value": "red"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "value": "green"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Chemical  Examination",
+                        "headingShow": false,
+                        "parameters": [
+                            {
+                                "id": 3,
+                                "name": "Reaction",
+                                "refValue": "6 - 12",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": "666",
+                                "shortingId": 3,
+                                "dropDownInput": []
+                            },
+                            {
+                                "id": 9,
+                                "name": "Chemical sub parameter 2",
+                                "refValue": null,
+                                "unit": null,
+                                "resultType": "DropDown",
+                                "reportResult": "green",
+                                "shortingId": 7,
+                                "dropDownInput": [
+                                    {
+                                        "id": 6,
+                                        "value": "Drop Down Input 6"
+                                    },
+                                    {
+                                        "id": 7,
+                                        "value": "Drop Down Input 7"
+                                    },
+                                    {
+                                        "id": 8,
+                                        "value": "Drop Down Input 8"
+                                    },
+                                    {
+                                        "id": 9,
+                                        "value": "Drop Down Input 9"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 4,
+                                "name": "Excess of phosphate",
+                                "refValue": null,
+                                "unit": null,
+                                "resultType": "DropDown",
+                                "reportResult": "red",
+                                "shortingId": 9,
+                                "dropDownInput": [
+                                    {
+                                        "id": 4,
+                                        "value": "positive"
+                                    },
+                                    {
+                                        "id": 5,
+                                        "value": "Nagative"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "Microscopic Examination",
+                        "headingShow": true,
+                        "parameters": [
+                            {
+                                "id": 6,
+                                "name": "Puss cells",
+                                "refValue": "12 - 19",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": "parameter-input-2-1",
+                                "shortingId": 11,
+                                "dropDownInput": []
+                            },
+                            {
+                                "id": 5,
+                                "name": "R.C.B",
+                                "refValue": "2- 9",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": "5555",
+                                "shortingId": 16,
+                                "dropDownInput": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "name": "Param Group 4",
+                        "headingShow": true,
+                        "parameters": [
+                            {
+                                "id": 7,
+                                "name": "Parameter 7",
+                                "refValue": "7-9",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": null,
+                                "shortingId": 2,
+                                "dropDownInput": []
+                            },
+                            {
+                                "id": 8,
+                                "name": "Parameter 8",
+                                "refValue": "5 - 10",
+                                "unit": "mm/ll",
+                                "resultType": "text",
+                                "reportResult": null,
+                                "shortingId": 9,
+                                "dropDownInput": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "department": "X-RAY",
+        "type": "Individual",
+        "requestList": [
+            {
+                "investigationRequestId": 135,
+                "investigationName": "Hips",
+                "unit": null,
+                "format": "<div style=\" font-size: 10px;\"> <b >FINDINGS :</b> <br>         No fracture and dislocation is noted <br>        No bony lession is seen <br>        Bone density is within limit <br>  This is for hips<br>  <br>        <b>COMMENT :</b> <br>      No significant abnormality is detected       </div>",
+                "refValue": "7-11",
+                "reportResult": "5",
+                "paramGroupList": []
+            },
+            {
+                "investigationRequestId": 136,
+                "investigationName": "HLA",
+                "unit": null,
+                "format": "<div style=\" font-size: 10px;\"> <b >FINDINGS :</b> <br>         No fracture and dislocation is noted <br>        No bony lession is seen <br>        Bone density is within limit <br>  <br>        <b>COMMENT :</b> <br>      No significant abnormality is detected       </div>",
+                "refValue": "7-11",
+                "reportResult": "5",
+                "paramGroupList": []
+            }
+        ]
+    }
+]
