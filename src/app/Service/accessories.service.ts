@@ -9,7 +9,7 @@ import { Accessories } from '../Model/Accessories';
 export class AccessoriesService {
 
   private fetchAccessoriesUrl: string = "http://localhost:8080/accessories";
-  //private fetchAccessoriesUrl = "/assets/data/accessories.json";
+  //private fetchAccessoriesUrl = "/assets/data/accessories.json"; changes in destop
 
 
   constructor(private _http : HttpClient) { }
