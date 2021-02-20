@@ -1,0 +1,445 @@
+.border-under-class {
+  /* border: 1px solid #cce0f5 ; */
+  box-shadow: 0 -.2rem .5rem rgb(214, 214, 240), 0 .05rem .05rem rgba(214, 214, 240), 0 .1rem .1rem rgba(214, 214, 240), 0 .15rem .15rem rgba(214, 214, 240), 0 .2rem .2rem rgba(214, 214, 240), 0 .25rem .25rem rgba(214, 214, 240);
+}
+
+#investigationRequest {
+  width: 100%;
+  /* background-image: url(/assets/image/background.png); */
+  background-color: white;
+  position: relative;
+  min-height: 500px;
+}
+
+#investigationTitle {
+  /* font-family: SimSun; */
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: Proxima-Nova;
+  position: relative;
+  width: 90%;
+  margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #4d4d4d;
+  /* font-family: SimSun;
+
+  font-family: Serif; */
+  font-family: Proxima-Nova;
+}
+
+#tableContainer {
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#tableContainer table tr th, td , #pop-up-report-table table tr th, td {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 5px;
+  font-size: 13px;
+}
+
+#tableContainer table tr th, #pop-up-report-table table tr th {
+  border-bottom: 2px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+  padding: 5px;
+  font-size: 13px;
+  color: black;
+  /* font-family: Proxima-Nova;
+  font-family: SimSun; */
+}
+
+.position {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  z-index: 2;
+}
+
+#modify-button-container {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  z-index: 2;
+}
+
+#modify-button-container button {
+  margin-left: 10px;
+}
+
+.table-btn {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #15C0EF;
+  color: white;
+  font-size: 15px;
+  letter-spacing: 1px; 
+}
+
+.table-btn:hover {
+background-color: #0fa7d1;
+}
+
+
+/* side nav */
+
+#payment-popup, #report-form-popup, #investigation-request-list-popup, #bill-form-popup, #report-info-popup, #investigation-request-list-popup {
+  height: 00px;
+  width: 80%;
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  transition: 0.3s;
+  border-radius: 20px;
+  background-color: white;
+}
+
+#payment-popup{
+  width: 500px;
+  top: 0;
+  transition: 0.2s;
+}
+
+#report-form-popup {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#investigation-request-list-popup {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#report-form-popup, #bill-form-popup, #report-info-popup {
+  width: 50%;
+  top: 50%;
+}
+
+#payment-popup a, #investigation-request-list-popup a, #report-form-popup a, #investigation-request-list-popup a, #bill-form-popup a, #report-info-popup a {
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  position: absolute;
+  z-index: 200;
+  top: 10px;
+  right: 15px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+#payment-popup a:hover, #investigation-request-list-popup a:hover, #report-form-popup a:hover, #bill-form-popup a:hover, #report-info-popup a:hover{
+  color: black;
+  cursor: pointer;
+}
+
+#service-detail {
+  margin: 30px;
+  margin-top: 40px;
+}
+
+#service-detail h2 {
+  margin-bottom: 20px;
+  text-underline-offset: 10px;
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#reportImage, #showReportText {
+  height: 150px;
+  width: 150px;
+  /* padding-left: 120px;  */
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+#showReportText {
+  margin-left: 50px;
+  color: black;
+}
+
+/* report table */
+
+.table-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+  font-family: Proxima-Nova;
+}
+
+.table-container td {
+  font-size: 11px;
+}
+
+.table-container th {
+  font-size: 12px;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-container tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.report {
+  font-size: 13px;
+}
+
+.image-report {
+  width: 100px;
+  height: 40px;
+}
+
+/* report form  */
+
+#report-formContainer, #bill-formContainer {
+  height: 60%;
+  width: 90%;
+  margin: auto;
+  margin-top: 0px;
+  border-radius: 5px;
+  /* background-color: white; */
+  padding: 20px;
+}
+
+input[type=text], input[type=file], input[type=textarea], select {
+  width: 100%;
+  padding: 8px 14px;
+  margin: 8px 0;
+  display: inline-block;
+  background-color: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#reportText {
+  background-color: white;
+}
+
+input[type=submit] {
+  width: 120px;
+  background-color: #6a5ce9;
+  color: white;
+  padding: 8px 8px;
+  margin: 8px 0;
+  margin-top: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* input[type=submit]:hover {
+    background-color: #45a049;
+  } */
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+th:last-child, td:last-child, td:nth-last-child(2), th:nth-last-child(2){
+  text-align: right;
+}
+
+th:nth-last-child(3), td:nth-last-child(3) {
+  text-align: right;
+}
+
+#pop-up-report-table td:nth-last-child(3), #pop-up-report-table th:nth-last-child(3), #pop-up-report-table td:nth-last-child(2), #pop-up-report-table th:nth-last-child(2) {
+  text-align: center;
+}
+
+#Payment-Value, #report-form {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 15px;
+  border-bottom: 3px solid black;
+  text-underline-position: 10px;
+  display: inline-block;
+  font-size: 25px;
+}
+
+.child {
+  width: 50%;
+  height: 200px;
+  background-color: white;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #cce0f5;
+  margin: auto;
+  margin-top: 40px;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+  /* box-shadow: 0 -.2rem .5rem rgba(0,0,30,.03),
+        0 .05rem .05rem rgba(0,0,30,.03),
+        0 .1rem .1rem rgba(0,0,30,.03),0 .15rem .15rem rgba(0,0,30,.03),
+        0 .2rem .2rem rgba(0,0,30,.03),0 .25rem .25rem rgba(0,0,30,.03); */
+  padding: 25px;
+}
+
+.child:hover {
+  border: 1px solid blue;
+  transition-delay: .3s;
+}
+
+.selectSample {
+  height: 35px;
+  width: 100%;
+  border: 0;
+}
+
+.inputfile {
+  /* background-color: red; */
+  border: 1px solid black;
+}
+
+.borderRed {
+  border: 1px solid red;
+}
+
+span {
+  font-size: 12px;
+  color: red;
+}
+
+
+
+
+/* Home section */
+
+.home {
+  margin: auto;
+  position: relative;
+  width: 95%;
+}
+
+#home-title {
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#button-container {
+  margin: auto;
+  position: relative;
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+#button-container button {
+  padding: 8px 65px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #15C0EF;
+  color: white;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+#button-container button:hover {
+  background-color: #0fa7d1;
+}
+
+.form-row .name {
+  width: 200px;
+  color: #555;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 29px;
+}
+
+.form-row .value {
+  width: calc(100% - 200px);
+}
+
+.form-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.input--style-5 {
+  background: white;
+  line-height: 18px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 0px;
+  padding: 0 22px;
+  font-size: 12px;
+  color: #555;
+}
+
+
+/* login background */
+
+#lodingDiv{
+  height: 0;
+  width: 30%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: #F89406;
+  background-color: white; 
+  text-align: center;
+}
+
+#lodingDiv i {
+  margin-top: 20px;
+  font-size: 25px;
+  color: black;
+}
+
+#lodingDiv div{
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+
+#backgroundloding{
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 0;
+  opacity: 0.7;
+  background-color: gray;
+}

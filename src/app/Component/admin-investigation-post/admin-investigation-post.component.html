@@ -1,0 +1,1052 @@
+<div class="home">
+    <div id="home-title"> Home -> Investigation / Bill</div>
+</div>
+
+
+
+
+<div id="All-data-Container">
+
+
+    <div *ngIf="!showConfirm">
+
+        <div style="width: 95%; margin: auto;">
+            <div class="section-title">
+                <h2 id="title-section">Patient Inforamtion</h2>
+            </div>
+        </div>
+
+
+        <!-- <div id="printAble"> <b>this is bold </b> <br> i an the show off </div>
+        <button id="printAblebutton" (click)="print()"
+         class="btn btn--radius-2 btn--blue">Print</button> -->
+
+
+        <!-- Start form -->
+        <form id="investigationForm" [formGroup]="investigationPostForm" (ngSubmit)="investigationPostFormSubmit()">
+
+            <div class="All-wrapper">
+
+
+                <div>
+                    <div class="wrapper wrapper--w960">
+                        <div class="card card-5">
+
+                            <div class="card-body">
+
+
+                                <div class="form-row">
+
+                                    <div class="name">Bill No</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+                                            <input formControlName="billNumber" class="input--style-5" type="text">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-row">
+
+                                    <div class="name">Patient Name</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+                                            <input
+                                                [ngClass]="{'borderRed' : investigationPostForm.get('name').errors &&
+                                (investigationPostForm.get('name').touched || investigationPostForm.get('name').dirty)}"
+                                                formControlName="name" class="input--style-5" type="text" name="Date">
+                                        </div>
+
+                                        <span
+                                            *ngIf="investigationPostForm.get('name').errors && (investigationPostForm.get('name').touched || investigationPostForm.get('name').dirty)">
+                                            <span *ngIf="investigationPostForm.get('name').errors.required"> Patient
+                                                name is required</span>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="name">Mobile</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+                                            <input
+                                            [ngClass]="{'borderRed' : investigationPostForm.get('mobile').errors &&
+                                (investigationPostForm.get('mobile').touched || investigationPostForm.get('mobile').dirty)}"
+                                             formControlName="mobile" class="input--style-5" type="text"
+                                                name="Date">
+                                        </div>
+
+                                        <span
+                                        *ngIf="investigationPostForm.get('mobile').errors && (investigationPostForm.get('mobile').touched || investigationPostForm.get('mobile').dirty)">
+                                        <span *ngIf="investigationPostForm.get('mobile').errors.required"> Mobile
+                                            number is required</span>
+                                    </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="name">Age</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+                                            <input id="age" formControlName="age" class="input--style-5" type="number"
+                                                name="Date">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- <div class="form-row">
+
+                                    <div class="name">Reference Doctor</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+                                            <select formControlName="referenceDoctor" style="height: 35px; width: 100%;"
+                                                class=" input--style-5">
+                                                <option *ngFor="let data of doctorArray" [value]='data.name'>
+                                                    {{data.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div> -->
+
+
+                                <div class="form-row">
+
+                                    <div class="name">Gender</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+
+                                            <select id="gender" formControlName="gender" name="subject"
+                                                class="input--style-5" style="height: 35px; width: 100%;">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <!-- <input formControlName="gender" class="input--style-5" 
+                                            type="text" name="Date"> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-row">
+
+                                    <div class="name">Ref Doctor</div>
+
+
+                                    <mat-form-field  style="width:500px !important">
+                                        <input placeholder="Select Reference Doctor" [formControl]="myControlRefDoctor" type="text"
+                                            matInput [matAutocomplete]="auto" style="border: none; width: 400px;">
+                                        <mat-autocomplete  #auto="matAutocomplete"
+                                            (optionSelected)="selectedRefDoctor($event.option.value)">
+                                            <mat-option *ngFor="let option of filteredOptionsRefDoctor | async" [value]="option">
+                                                {{option}}
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+
+                                </div>
+
+
+                                <!-- <div>
+                                <button type="submit" value="Next" class="btn btn--radius-2 btn--blue">Save</button>
+                            </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <!-- End Form -->
+
+            <div style="width: 95%; margin: auto;">
+                <div class="section-title">
+                    <h2 id="title-section">Add Investigation</h2>
+                </div>
+            </div>
+
+
+
+            <div class="All-wrapper">
+
+
+                <div>
+                    <div class="wrapper wrapper--w960">
+                        <div class="card card-5">
+
+                            <div class="card-body">
+
+                                <div class="form-row">
+
+                                    <div class="name">Investigation Name</div>
+
+
+                                    <mat-form-field  style="width:500px !important">
+                                        <input placeholder="Select Investigation" [formControl]="myControl" type="text"
+                                            matInput [matAutocomplete]="autoo" style="border: none; width: 400px;">
+                                        <mat-autocomplete  #autoo="matAutocomplete"
+                                            (optionSelected)="selectedValue($event.option.value)">
+                                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                                {{option}}
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+
+                                </div>
+
+
+
+
+                                <div class="form-row">
+
+                                    <div class="name">Accessories</div>
+
+
+                                    <mat-form-field  style="width:500px !important">
+                                        <input placeholder="Select Accessories" [formControl]="myControlAccessories" type="text"
+                                            matInput [matAutocomplete]="autooo" style="border: none; width: 400px;">
+                                        <mat-autocomplete  #autooo="matAutocomplete"
+                                            (optionSelected)="selectedAccessories($event.option.value)">
+                                            <mat-option *ngFor="let option of filteredOptionsAccessories | async" [value]="option">
+                                                {{option}}
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+
+                                </div>
+
+
+
+
+                                <div style="margin-top: 100px;" class="form-row">
+
+                                    <div class="name">Selected Investigation : {{selectedInvestigation.length}}</div>
+                                    <!-- <div class="value">
+                                    <div class="input-group ">
+                                        <input class="input--style-5" type="text" id="Amount" name="Amount">
+                                    </div>
+                                </div> -->
+
+                                </div>
+
+
+
+
+
+
+
+                                <!-- Table -->
+                                <table *ngIf="selectedInvestigation.length != 0">
+                                    <tr>
+                                        <th>Number</th>
+                                        <th>Investigation Name</th>
+                                        <th>Department</th>
+                                        <th>Delete</th>
+                                        <th>Rate</th>
+                                    </tr>
+
+                                    <tr *ngFor="let select of selectedInvestigation; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>{{select.name}}</td>
+                                        <td>{{select.department.name}}</td>
+                                        <td><button (click)="deleteselectedItem(select.id)" type="button"
+                                                class="delete-btn">Delete</button></td>
+                                        <td>{{select.rate}}</td>
+                                    </tr>
+
+
+                                    <tr *ngFor="let select of addedAccessories; index as i">
+                                        <td>{{i+1+lastIndex}}</td>
+                                        <td>{{select.name}}</td>
+                                        <td></td>
+                                        <td><button (click)="deleteSelectedAccessories(select)" type="button"
+                                            class="delete-btn">Delete</button></td>
+                                        <td>{{select.amount}}</td>
+                                    </tr>
+
+
+                                </table>
+
+
+
+
+
+
+                                <!-- <div style="margin-top: 100px;" class="form-row">
+                                    <div class="name">Added Accessories : {{addedAccessories.length}}</div>
+                                </div>
+
+                                <table *ngIf="addedAccessories.length != 0">
+                                    <tr>
+                                        <th>Number</th>
+                                        <th>Accessories Name</th>
+                                        <th>Amount</th>
+                                    </tr>
+
+                                    <tr *ngFor="let select of addedAccessories; index as i">
+                                        <td>{{i+1}}</td>
+                                        <td>{{select.name}}</td>
+                                        <td>{{select.amount}}</td>
+                                    </tr>
+
+
+                                </table> -->
+
+
+
+
+
+
+
+
+                                <div style="margin-top: 100px;" class="form-row">
+
+                                    <div class="name">Total Amount:</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+
+                                            {{totalCost}}
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div style="margin-top: 50px;" class="form-row">
+
+                                    <div class="name">Payment Amount</div>
+                                    <div class="value">
+                                        <div class="input-group ">
+                                            <input
+                                                [ngClass]="{'borderRed' : investigationPostForm.get('paymentAmount').errors &&
+                                (investigationPostForm.get('paymentAmount').touched || investigationPostForm.get('paymentAmount').dirty)}"
+                                                formControlName="paymentAmount" class="input--style-5" type="number"
+                                                name="Amount">
+                                        </div>
+
+                                        <span
+                                            *ngIf="investigationPostForm.get('paymentAmount').errors &&
+                                           (investigationPostForm.get('paymentAmount').touched || investigationPostForm.get('paymentAmount').dirty)">
+                                            <span
+                                                *ngIf="investigationPostForm.get('paymentAmount').errors.required">Amount
+                                                is
+                                                required</span>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-row">
+                                    <div class="name">Payment Mode</div>
+                                    <div class="value">
+                                        <div class="input-group">
+
+                                            <select formControlName="paymentMode" class="input--style-5"
+                                                style="height: 35px; width: 100%; border: 1px solid #C0C0C0;" id="Type"
+                                                name="Type">
+
+                                                <option style="color: black;" value="Bkash">Bkash</option>
+                                                <option style="color: black;" value="SureCash">SureCash</option>
+                                                <option style="color: black;" value="Nogod">Nogod</option>
+                                                <option style="color: black;" value="Payment Cash">Payment Cash</option>
+                                                <option style="color: black;" value="Card">Card</option>
+
+                                            </select>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div>
+                                    <button type="button" (click)="investigationPostFormSubmit()"
+                                        class="btn btn--radius-2 btn--blue">Next</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </form>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <div *ngIf="showConfirm" style="padding: 0;" id="information-pop-up">
+
+
+
+        <div style="width: 100%; margin: auto;">
+            <div class="section-title">
+                <h2 id="title-section">Confirm Information</h2>
+            </div>
+        </div>
+
+
+        <div style="width: 95%; margin: auto;">
+
+            <div id="printRecord">
+
+
+                <div id="service-heading">
+                    <div style="display: inline-block;  border-bottom: 1px solid black;">
+                        <h4>Patient Information:</h4>
+                    </div>
+                </div>
+
+
+                <div class="wrapper wrapper--w960 ">
+
+                    <div id="table-form">
+
+                        <div class="form-row">
+                            <div id="display" class="name">Bill No</div>
+                            <div class="valueforprint"> {{investigationPostForm.value.billNumber}}</div>
+
+
+
+                            <div id="display" class="name">Age</div>
+                            <div class="valueforprint">
+                                <span *ngIf="investigationPostForm.value.age != null; else age">
+                                    {{investigationPostForm.value.age}}
+                                </span>
+                                <ng-template #age>
+                                    <div> Not set </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-row">
+                            <div id="display" class="name">Patient Name</div>
+                            <div class="valueforprint">{{investigationPostForm.value.name}} </div>
+
+
+
+                            <div class="name">Gender</div>
+                            <div class="valueforprint"> <span
+                                    *ngIf="investigationPostForm.value.gender != null; else gender">
+                                    {{investigationPostForm.value.gender}}
+                                </span>
+                                <ng-template #gender>
+                                    <div> Not set </div>
+                                </ng-template>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row ">
+                            <div class="name">Mobile</div>
+                            <div class="valueforprint"> {{investigationPostForm.value.mobile}} </div>
+
+
+                            <div class="name">Reference Doctor</div>
+                            <div class="valueforprint"> <span
+                                    *ngIf="investigationPostForm.value.referenceDoctor != null; else referenceDoctor">
+                                    {{investigationPostForm.value.referenceDoctor}}
+                                </span>
+                                <ng-template #referenceDoctor>
+                                    <div> Not set </div>
+                                </ng-template>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div id="service-heading">
+                    <div style="display: inline-block;  border-bottom: 1px solid Black;">
+                        <h4>Selected Investigation :</h4>
+                    </div>
+                </div>
+
+                <div id="next-table-container">
+                    <table>
+                        <tr>
+                            <th>Number</th>
+                            <th>Name</th>
+                            <th>Department </th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr *ngFor="let select of selectedInvestigation; index as i">
+                            <td>{{i+1}}</td>
+                            <td>{{select.name}}</td>
+                            <td>{{select.department.name}}</td>
+                            <td>{{select.rate}}</td>
+                        </tr>
+                        <tr *ngFor="let select of addedAccessories; index as i">
+                            <td>{{i+1+lastIndex}}</td>
+                            <td>{{select.name}}</td>
+                            <td></td>
+                            <td>{{select.amount}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+
+                <!-- cost -->
+                <div class="payment-container">
+                    <div style="margin-bottom: 15px; ">
+                        =====================================
+                    </div>
+
+                    <div class="payment-section-next">
+                        <div id="display" class="payment-section-next-title">Total Amount:</div>
+                        <div style="position: absolute; right: 0px;"> {{totalCost}} </div>
+                    </div>
+
+                    <div class="payment-section-next">
+                        <div id="display" class="payment-section-next-title">Payment Amount:</div>
+                        <div style="position: absolute; right: 0px;"> {{investigationPostForm.value.paymentAmount}}
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px; ">
+                        =====================================
+                    </div>
+
+                    <div class="payment-section-next">
+                        <div id="display" class="payment-section-next-title">Due Amount:</div>
+                        <div style="position: absolute; right: 0px;"> {{totalCost -
+                            investigationPostForm.value.paymentAmount}} </div>
+                    </div>
+
+                    <div style="margin-top: 30px;" class="payment-section-next">
+                        <div id="display" class="payment-section-next-title">Payment Mode:</div>
+                        <div style="position: absolute; right: 0px;"> <span
+                                *ngIf="investigationPostForm.value.paymentMode != null; else paymentMode">
+                                {{investigationPostForm.value.paymentMode}}
+                            </span>
+                            <ng-template #paymentMode>
+                                <span> Not set </span>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+            <div *ngIf="!showPrintAndBill" style="margin-bottom: 20px; margin-top: 140px;">
+                <button (click)="editInformation()" class="btn btn--radius-2 btn--blue">Edit</button>
+                <button (click)="confirmSubmit()" class="btn btn--radius-2 btn--blue">Confirm</button>
+            </div>
+
+            <div *ngIf="showPrintAndBill" style="margin-bottom: 20px; margin-top: 140px;">
+                <button (click)="printRecord()" class="btn btn--radius-2 btn--blue">
+                    <span class="fa fa-print"></span>&nbsp;<span>Print</span>
+                </button>
+                <button style="padding: 10px 40px; font-size: 18px;" (click)="newBill()"
+                    class="btn btn--radius-2 btn--blue">New Bill</button>
+                <!-- </div>*ngIf="showPrintAndBill" -->
+
+                <div style="height: 50px; width: 100%;"> </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="lodingDiv">
+        <i class="fas fa-circle-notch fa-spin"></i>
+        <div> saving </div>
+    </div>
+
+
+    <div id="backgroundloding">
+        <!-- <i style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+    font-size: 30px; color: white;" class="fas fa-circle-notch fa-spin"></i> -->
+    </div>
+
+
+
+
+
+    <!-- <div id="confirm-popup">
+
+
+        <div style="padding: 0;" id="information-pop-up">
+
+            <div id="heading">
+                <div style="display: inline-block;  border-bottom: 3px solid Black;">
+                    <h2>Submitted Information</h2>
+                </div>
+            </div>
+
+            <div id="service-heading">
+                <div style="display: inline-block;  border-bottom: 2px solid Black;">
+                    <h4>Selected Investigation :</h4>
+                </div>
+            </div>
+
+            <div id="next-table-container">
+                <table>
+                    <tr>
+                        <th>Number</th>
+                        <th>Investigations Name</th>
+                        <th>Amount</th>
+                        <th>Department</th>
+                    </tr>
+                    <tr *ngFor="let select of selectedInvestigation; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{select.name}}</td>
+                        <td>{{select.rate}}</td>
+                        <td>{{select.department.name}}</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div>
+                <div class="payment-section-next">
+                    <div class="payment-section-next-title">Total Amount:</div>
+                    {{totalCost}}
+                </div>
+
+                <div class="payment-section-next">
+                    <div class="payment-section-next-title">Payment Amount:</div>
+                    {{investigationPostForm.value.paymentAmount}}
+                </div>
+
+                <div class="payment-section-next">
+                    <div class="payment-section-next-title">Payment Mode:</div>
+                    <span *ngIf="investigationPostForm.value.paymentMode != null; else paymentMode">
+                        {{investigationPostForm.value.paymentMode}}
+                    </span>
+                    <ng-template #paymentMode>
+                        <span> Not set </span>
+                    </ng-template>
+                </div>
+
+            </div>
+
+
+            <div id="service-heading">
+                <div style="display: inline-block;  border-bottom: 2px solid black;">
+                    <h4>Patient Information:</h4>
+                </div>
+            </div>
+
+            <div>
+                <div class="wrapper wrapper--w960 ">
+                    <div>
+
+                        <div id="table-form">
+
+
+                            <div class="form-row">
+                                <div class="name">Bill No</div>
+                                {{investigationPostForm.value.billNumber}}
+                            </div>
+
+                            <div class="form-row">
+                                <div class="name">Patient Name</div>
+                                {{investigationPostForm.value.name}}
+                            </div>
+
+
+                            <div class="form-row ">
+                                <div class="name">Mobile</div>
+                                {{investigationPostForm.value.mobile}}
+                            </div>
+
+
+                            <div class="form-row ">
+                                <label class="name">Age</label>
+                                <span *ngIf="investigationPostForm.value.age != null; else age">
+                                    {{investigationPostForm.value.age}}
+                                </span>
+                                <ng-template #age>
+                                    <span> Not set </span>
+                                </ng-template>
+
+                            </div>
+
+                            <div class="form-row ">
+                                <label class="name">Sex</label>
+                                <span *ngIf="investigationPostForm.value.gender != null; else gender">
+                                    {{investigationPostForm.value.gender}}
+                                </span>
+                                <ng-template #gender>
+                                    <span> Not set </span>
+                                </ng-template>
+                            </div>
+
+
+
+                            <div class="form-row">
+                                <div class="name">Reference Doctor</div>
+                                <span *ngIf="investigationPostForm.value.referenceDoctor != null; else referenceDoctor">
+                                    {{investigationPostForm.value.referenceDoctor}}
+                                </span>
+                                <ng-template #referenceDoctor>
+                                    <span> Not set </span>
+                                </ng-template>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <button (click)="finish()" class="btn btn--radius-2 btn--blue">Finish</button>
+            </div>
+        </div>
+
+
+    </div>
+ -->
+
+
+
+    <div id="make-space"> </div>
+
+
+
+    <!-- Popup message  -->
+    <div id="popup-info" class="popup center border-class">
+        <div class="icon">
+            <!-- <i class="fa fa-check"></i> -->
+            <i class="fa fa-exclamation-triangle"></i>
+        </div>
+        <div class="title-pop-up">
+            An error is occured
+        </div>
+        <div class="description">
+
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn">
+                Dismiss
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="page-wrapper  p-b-50">
+    <div class="wrapper wrapper--w700">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">give information</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="investigationPostForm"
+                    (ngSubmit)="investigationPostFormSubmit(investigationPostForm.value)">
+
+                    <div class="form-row">
+                        <div class="name">Patient Name</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input [ngClass]="{'borderRed' : investigationPostForm.get('patientName').errors &&
+                                (investigationPostForm.get('patientName').touched || investigationPostForm.get('patientName').dirty)}"
+                                 formControlName="patientName" class="input--style-5" type="text" name="company">
+                            </div>
+                            <span 
+                                *ngIf="investigationPostForm.get('patientName').errors && (investigationPostForm.get('patientName').touched || investigationPostForm.get('patientName').dirty)">
+                                <span *ngIf="investigationPostForm.get('patientName').errors.required"> Patient name is required</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Mobile</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input
+                                [ngClass]="{'borderRed' : investigationPostForm.get('mobile').errors &&
+                                (investigationPostForm.get('mobile').touched || investigationPostForm.get('mobile').dirty)}"
+                                 formControlName="mobile" class="input--style-5" type="text" name="company">
+                            </div>
+                            <span 
+                                *ngIf="investigationPostForm.get('mobile').errors &&
+                                 (investigationPostForm.get('mobile').touched || investigationPostForm.get('mobile').dirty)">
+                                <span *ngIf="investigationPostForm.get('mobile').errors.required">Mobile is required</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Gmail</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input formControlName="gmail" class="input--style-5" type="text" name="company">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Age</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input formControlName="age" class="input--style-5" type="text" name="company">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="name">Sex</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <select formControlName="gender" name="subject"
+                                    class="input-border-under-class input--style-5"
+                                    style="height: 35px; width: 100%; border: 0px;">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-row">
+                        <div class="name">ReferenceId</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input formControlName="referenceId" class="input--style-5" type="text" name="company">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Investigation Name</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <select (change)="format()" formControlName="investigationName" name="subject"
+                                    class="input-border-under-class input--style-5 selectSample"
+                                    [ngClass]="{'borderRed' : investigationPostForm.get('investigationName').errors &&
+                                (investigationPostForm.get('investigationName').touched || investigationPostForm.get('investigationName').dirty)}">
+                                    <option  *ngFor="let data of investigationNameArray" [value]='data'>{{data}}</option>
+                                </select>
+                            </div>
+                            <span
+                                *ngIf="investigationPostForm.get('investigationName').errors && 
+                                (investigationPostForm.get('investigationName').touched || investigationPostForm.get('investigationName').dirty)">
+                                <span *ngIf="investigationPostForm.get('investigationName').errors.required">Investigation name is required</span>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="name">Bill Status</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <select formControlName="billStatus" name="subject"
+                                    class="input-border-under-class input--style-5"
+                                    style="height: 35px; width: 100%; border: 0px;">
+                                    <option [value]=true>Paid</option>
+                                    <option [value]=false>Unpaid</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Report Result</div>
+                        <div class="value">
+                            <div class="input-border-under-class ">
+                                <textarea [value]="investigationformat" formControlName="reportText" type="" name="email"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="name">Report Image</div>
+                        <div class="value">
+                            <div class="input-group input-border-under-class">
+                                <input (change)="onselectfile($event)" multiple class="input--style-5" type="file"
+                                    name="company">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" value="Save" class="btn btn--radius-2 btn--blue">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+-->
+
+
+
+    <!-- 
+<div id="successfull-next-popup">
+    <a id="successfull-next-popup-close">&times;</a>
+
+
+    <div id="patint-table">
+
+        <div id="patient-title">
+            <div style="display: inline; border-bottom: 2px solid black;"> Patient Inforamtion </div>
+        </div>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="text-align: left;" colspan="2">Date:  {{curDate | date:'EEE, MMMM dd,yyyy'}}</td>
+            </tr>
+            <tr>
+                <td>Patient's Name</td>
+                <td>{{ptientName}}</td>
+                <td>Sex: {{sex}}</td>
+                <td>Age: {{age}}</td>
+            </tr>
+            <tr>
+                <td>Sample</td>
+                <td colspan="3">{{sample}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="report-table-container">
+        <div id="report-title">
+            <div style="display: inline; border-bottom: 2px solid black;"> Report </div>
+        </div>
+        <table>
+            <tr>
+                <th>Test Name</th>
+                <th>Result</th>
+                <th>Reference Value</th>
+            </tr>
+            <tr>
+                <td>{{investigationName}}</td>
+                <td>{{reportResult}}</td>
+                <td>{{referenceValue}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div *ngIf="reportImageIsSelected" id="report-image-container">
+
+        <div id="report-image-text">
+            <div style="display: inline; border-bottom: 2px solid black;"> Report Image </div>
+        </div>
+        <div style="width: 100%; text-align: center;">
+            <img [src]="imageUrl">
+        </div>
+
+    </div>
+
+    <div style="position: relative;"  id="button-container">
+        <button *ngIf="this.gamilValue != null && this.gamilValue != '' " (click)="pdfSend()" style="margin-left: 0; margin-right: 10px;" class="btn btn--radius-2 btn--blue">
+            <img style="width: 15px; height: 15px; position: absolute; bottom: 38px; left: 9px;" src="../assets/image/gmail-logo.jpg">
+            Email
+        </button>
+        <button (click)="close()" class="btn btn--radius-2 btn--blue"> Finish </button>
+    </div>
+
+</div>
+
+
+<div id="gmail-popup">
+    <a id="gmail-popup-close">&times;</a>
+
+    <div id="sucessfull-message">
+
+        <div class="form-row">
+            <div class="name" style="font-size: 15px; width: 100px;">Enter gmail</div>
+            <div class="" style="width:80%; margin-left: 0px; padding-left: 0px; background-color: red;">
+                <div style="width: 100%;" class="input-group input-border-under-class">
+                    <input style="width: 100%;" [(ngModel)]="gamilValue" class="input--style-5" type="text"
+                        name="company">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="button-container">
+        <button (click)="pdfSend()" style="margin: 0;" class="btn btn--radius-2 btn--blue"> Send </button>
+    </div>
+
+</div> -->

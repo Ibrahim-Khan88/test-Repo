@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Physical Examination",
+        "parameters": [
+            {
+                "id": 1,
+                "name": "Color",
+                "refValue": null,
+                "resultType": "DropDown",
+                "reportResult": null
+            },
+            {
+                "id": 2,
+                "name": "Appearance",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Chemical  Examination",
+        "parameters": [
+            {
+                "id": 3,
+                "name": "Reaction",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null
+            },
+            {
+                "id": 4,
+                "name": "Excess of phosphate",
+                "refValue": null,
+                "resultType": "DropDown",
+                "reportResult": null
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Microscopic Examination",
+        "parameters": [
+            {
+                "id": 5,
+                "name": "R.C.B",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null
+            },
+            {
+                "id": 6,
+                "name": "Puss cells",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null
+            }
+        ]
+    }
+]

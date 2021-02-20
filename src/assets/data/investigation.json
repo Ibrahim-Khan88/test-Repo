@@ -1,0 +1,458 @@
+[
+    {
+        "id": 8,
+        "name": "HLA",
+        "description": "description",
+        "note": "note",
+        "format": "<div style=\" font-size: 10px;\"> <b >FINDINGS :</b> <br>         No fracture and dislocation is noted <br>        No bony lession is seen <br>        Bone density is within limit <br>  <br>        <b>COMMENT :</b> <br>      No significant abnormality is detected       </div>",
+        "code": null,
+        "selectionCode": "004",
+        "resultType": null,
+        "vatApply": false,
+        "vatApplyAmount": 0,
+        "discountAmount": 100,
+        "discountPer": 0,
+        "sortingId": 1,
+        "unit": null,
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "X-RAY",
+            "type": "Individual",
+            "id": 2
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [],
+        "paramGroup": [],
+        "accessories": [],
+        "lastModifiedDate": "2021-01-14T15:14:02.000+00:00",
+        "createdDate": "2021-01-14T15:14:02.000+00:00"
+    },
+    {
+        "id": 3,
+        "name": "RBC",
+        "description": "description",
+        "note": "note",
+        "format": "format",
+        "code": null,
+        "selectionCode": "002",
+        "resultType": null,
+        "vatApply": true,
+        "vatApplyAmount": 150,
+        "discountAmount": 100,
+        "discountPer": 0,
+        "sortingId": 2,
+        "unit": "ml/gg",
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "BIOCHEMISTRY",
+            "type": "List",
+            "id": 1
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [],
+        "paramGroup": [],
+        "accessories": [
+            {
+                "id": 1,
+                "name": "Tube",
+                "description": "Tube",
+                "amount": 300
+            },
+            {
+                "id": 2,
+                "name": "Paper",
+                "description": "Paper",
+                "amount": 300
+            }
+        ],
+        "lastModifiedDate": "2021-01-14T15:06:05.000+00:00",
+        "createdDate": "2021-01-14T15:06:05.000+00:00"
+    },
+    {
+        "id": 5,
+        "name": "Hips",
+        "description": "description",
+        "note": "note",
+        "format": "<div style=\" font-size: 10px;\"> <b >FINDINGS :</b> <br>         No fracture and dislocation is noted <br>        No bony lession is seen <br>        Bone density is within limit <br>  This is for hips<br>  <br>        <b>COMMENT :</b> <br>      No significant abnormality is detected       </div>",
+        "code": null,
+        "selectionCode": "004",
+        "resultType": null,
+        "vatApply": false,
+        "vatApplyAmount": 0,
+        "discountAmount": 100,
+        "discountPer": 0,
+        "sortingId": 2,
+        "unit": null,
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "X-RAY",
+            "type": "Individual",
+            "id": 2
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [
+            {
+                "id": 1,
+                "name": "Color",
+                "refValue": null,
+                "resultType": "DropDown",
+                "reportResult": null,
+                "paramGroup": {
+                    "id": 1,
+                    "name": "Physical Examination"
+                }
+            },
+            {
+                "id": 3,
+                "name": "Reaction",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null,
+                "paramGroup": {
+                    "id": 2,
+                    "name": "Chemical  Examination"
+                }
+            }
+        ],
+        "paramGroup": [],
+        "accessories": [],
+        "lastModifiedDate": "2021-01-14T15:14:02.000+00:00",
+        "createdDate": "2021-01-14T15:14:02.000+00:00"
+    },
+    {
+        "id": 1,
+        "name": "CBC",
+        "description": "description",
+        "note": "note",
+        "format": "format",
+        "code": null,
+        "selectionCode": "001",
+        "resultType": null,
+        "vatApply": false,
+        "vatApplyAmount": 0,
+        "discountAmount": 100,
+        "discountPer": 5,
+        "sortingId": 3,
+        "unit": "ml/gg",
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "BIOCHEMISTRY",
+            "type": "List",
+            "id": 1
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [],
+        "paramGroup": [],
+        "accessories": [
+            {
+                "id": 1,
+                "name": "Tube",
+                "description": "Tube",
+                "amount": 300
+            }
+        ],
+        "lastModifiedDate": "2021-01-13T15:27:54.000+00:00",
+        "createdDate": "2021-01-13T15:27:54.000+00:00"
+    },
+    {
+        "id": 4,
+        "name": "Creamming",
+        "description": "description",
+        "note": "note",
+        "format": "",
+        "code": null,
+        "selectionCode": "003",
+        "resultType": "Drop Down",
+        "vatApply": false,
+        "vatApplyAmount": 0,
+        "discountAmount": 100,
+        "discountPer": 10,
+        "sortingId": 4,
+        "unit": "ml/gg",
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "BIOCHEMISTRY",
+            "type": "List",
+            "id": 1
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [],
+        "paramGroup": [],
+        "accessories": [
+            {
+                "id": 2,
+                "name": "Paper",
+                "description": "Paper",
+                "amount": 300
+            }
+        ],
+        "lastModifiedDate": "2021-01-15T14:06:32.000+00:00",
+        "createdDate": "2021-01-15T14:06:32.000+00:00"
+    },
+    {
+        "id": 6,
+        "name": "parameter investigation 1",
+        "description": "description",
+        "note": "note",
+        "format": "format",
+        "code": null,
+        "selectionCode": "005",
+        "resultType": null,
+        "vatApply": false,
+        "vatApplyAmount": 0,
+        "discountAmount": 100,
+        "discountPer": 0,
+        "sortingId": 6,
+        "unit": null,
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "ParameterTypeDepartment",
+            "type": "Parameter",
+            "id": 5
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [
+            {
+                "id": 1,
+                "name": "Color",
+                "refValue": null,
+                "resultType": "DropDown",
+                "reportResult": null,
+                "paramGroup": {
+                    "id": 1,
+                    "name": "Physical Examination"
+                }
+            },
+            {
+                "id": 3,
+                "name": "Reaction",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null,
+                "paramGroup": {
+                    "id": 2,
+                    "name": "Chemical  Examination"
+                }
+            },
+            {
+                "id": 4,
+                "name": "Excess of phosphate",
+                "refValue": null,
+                "resultType": "DropDown",
+                "reportResult": null,
+                "paramGroup": {
+                    "id": 2,
+                    "name": "Chemical  Examination"
+                }
+            },
+            {
+                "id": 5,
+                "name": "R.C.B",
+                "refValue": null,
+                "resultType": "text",
+                "reportResult": null,
+                "paramGroup": {
+                    "id": 3,
+                    "name": "Microscopic Examination"
+                }
+            }
+        ],
+        "paramGroup": [
+            {
+                "id": 1,
+                "name": "Physical Examination",
+                "parameters": [
+                    {
+                        "id": 1,
+                        "name": "Color",
+                        "refValue": null,
+                        "resultType": "DropDown",
+                        "reportResult": null
+                    },
+                    {
+                        "id": 2,
+                        "name": "Appearance",
+                        "refValue": null,
+                        "resultType": "text",
+                        "reportResult": null
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Chemical  Examination",
+                "parameters": [
+                    {
+                        "id": 3,
+                        "name": "Reaction",
+                        "refValue": null,
+                        "resultType": "text",
+                        "reportResult": null
+                    },
+                    {
+                        "id": 4,
+                        "name": "Excess of phosphate",
+                        "refValue": null,
+                        "resultType": "DropDown",
+                        "reportResult": null
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Microscopic Examination",
+                "parameters": [
+                    {
+                        "id": 5,
+                        "name": "R.C.B",
+                        "refValue": null,
+                        "resultType": "text",
+                        "reportResult": null
+                    },
+                    {
+                        "id": 6,
+                        "name": "Puss cells",
+                        "refValue": null,
+                        "resultType": "text",
+                        "reportResult": null
+                    }
+                ]
+            }
+        ],
+        "accessories": [],
+        "lastModifiedDate": "2021-01-14T15:14:02.000+00:00",
+        "createdDate": "2021-01-14T15:14:02.000+00:00"
+    },
+    {
+        "id": 7,
+        "name": "parameter investigation 2",
+        "description": "description",
+        "note": "note",
+        "format": "format",
+        "code": null,
+        "selectionCode": "006",
+        "resultType": null,
+        "vatApply": false,
+        "vatApplyAmount": 0,
+        "discountAmount": 100,
+        "discountPer": 0,
+        "sortingId": 7,
+        "unit": null,
+        "rate": 200,
+        "refValue": "7-11",
+        "provider": null,
+        "department": {
+            "name": "ParameterTypeDepartment",
+            "type": "Parameter",
+            "id": 5
+        },
+        "specimen": {
+            "id": 1,
+            "name": "Speciman 1",
+            "description": "Speciman 1",
+            "amout": 100
+        },
+        "subGroup": {
+            "id": 1,
+            "name": "Sub group 1",
+            "heading": "Sub group 1",
+            "description": "description"
+        },
+        "investigationRequest": null,
+        "parameters": [],
+        "paramGroup": [
+            {
+                "id": 4,
+                "name": "Param Group 4",
+                "parameters": []
+            }
+        ],
+        "accessories": [],
+        "lastModifiedDate": "2021-01-14T15:14:02.000+00:00",
+        "createdDate": "2021-01-14T15:14:02.000+00:00"
+    }
+]

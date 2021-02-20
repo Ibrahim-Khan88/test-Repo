@@ -1,0 +1,119 @@
+<div id="investigation-content-container">
+
+
+
+    <h3 class="Select"> Select Your Require Services</h3>
+
+    <div id="tableContainer">
+        <table>
+            <tr>
+                <th>Investigations Name</th>
+                <th>Cost</th>
+                <th>Discount</th>
+                <th>Catagory</th>
+                <th>Select</th>
+            </tr>
+            <tr *ngFor="let variable of investigation; let i = index ">
+                <td>{{variable.name}}</td>
+                <td>{{variable.rate}}</td>
+                <td>10%</td>
+                <td>{{variable.category.name}}</td>
+                <td><input type="checkbox" value="1" (change)="getSelectedId($event,variable.id)"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="nextbutton">
+        <button (click)="nextPage()" class="btn btn-primary">
+            Next</button>
+    </div>
+
+</div>
+
+
+
+<!-- Pop up message -->
+
+<div class="popup center border-class">
+    <div class="icon">
+        <i class="fa fa-exclamation"></i>
+    </div>
+    <div class="title-pop-up">
+        Please select at least one investigation
+    </div>
+    <div class="description">
+    </div>
+    <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+            Dismiss
+        </button>
+    </div>
+</div>
+<!-- <div class="center">
+    <button id="open-popup-btn">
+        Open Popup
+    </button>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<section>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <th>Service Name</th>
+                <th>Cost</th>
+                <th>Detail</th>
+                <th>Request</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                <tr *ngFor="let variable of investigation; let i = index ">
+                    <td>{{variable.name}}</td>
+                    <td>{{variable.rate}}</td>
+                    <td><button (click)="detail(i)">Detail</button></td>
+                    <td><button (click)="Request(i)">Request</button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+
+
+<div id="slidecontainer1">
+    <div id="mySidenav1" class="sidenav1">
+        <a class="closebtn1">&times;</a>
+
+        <div id="service-detail">
+
+            <p> <b> Service Name: </b>  {{investigationDetail.name}}</p>
+
+            <p> <b> Category: </b> {{investigationDetail.category.name}} </p>
+            <p> <b> Description: </b>{{investigationDetail.description}} </p>
+
+
+            <p> <b> Note: </b> {{investigationDetail.note}} </p>
+            <p> <b> cost: </b> {{investigationDetail.rate}}</p>
+
+        </div>
+
+    </div>
+</div> -->

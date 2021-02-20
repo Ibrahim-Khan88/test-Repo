@@ -1,0 +1,59 @@
+[
+    {
+        "name": " test",
+        "billNumber": "b000010",
+        "mobile": "01521453788",
+        "requestList": [
+            {
+                "investigationRequestId": 8,
+                "rate": 200,
+                "investigationName": "HLA",
+                "departmentName": "MOLECULAR"
+            }
+        ]
+    },
+    {
+        "name": " test",
+        "billNumber": "b000008",
+        "mobile": "01521453788",
+        "requestList": [
+            {
+                "investigationRequestId": 2,
+                "rate": 200,
+                "investigationName": "RBC",
+                "departmentName": "BIOCHEMISTRY"
+            },
+            {
+                "investigationRequestId": 9,
+                "rate": 200,
+                "investigationName": "Test2",
+                "departmentName": "Dept"
+            },
+            {
+                "investigationRequestId": 378,
+                "rate": 228,
+                "investigationName": "Test8",
+                "departmentName": "X-RAY"
+            },
+            {
+                "investigationRequestId": 7,
+                "rate": 200,
+                "investigationName": "ANKLE-LEFT-AP",
+                "departmentName": "X-RAY"
+            }
+        ]
+    },
+    {
+        "name": " test",
+        "billNumber": "b000009",
+        "mobile": "01521453788",
+        "requestList": [
+            {
+                "investigationRequestId": 1,
+                "rate": 200,
+                "investigationName": "CBC",
+                "departmentName": "BIOCHEMISTRY"
+            }
+        ]
+    }
+]

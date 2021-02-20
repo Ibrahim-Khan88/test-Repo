@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Sub group 1",
+        "heading": "Sub group 1",
+        "description": "description"
+    },
+    {
+        "id": 2,
+        "name": "Sub group 2",
+        "heading": "Sub group 2",
+        "description": "Sub group 2"
+    }
+]

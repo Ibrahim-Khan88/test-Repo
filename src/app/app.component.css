@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Proxima-Nova';
+    src: url('../assets/Font/FontsFree-Net-Proxima-Nova-Soft-W03-Regular.ttf');
+}
+
+
+
+#all-file-contain {
+    /* background-image: url(/assets/image/background.png); */
+    background-color: white;
+}
+
+#main{
+    transition: 0.4s;
+}
+

@@ -1,0 +1,395 @@
+<!-- <div id="modify-button-container">
+
+    <button (click)="addInvestigationRequest()" class="btn btn--radius-2 btn-primary ">
+        <i class="fa fa-plus" style="margin-left: 3px; margin-right: 3px;"></i> Add Investigation Request</button>
+
+    <button (click)="addInvestigation()" class="btn btn--radius-2 btn-primary ">
+        <i class="fa fa-plus" style="margin-left: 3px; margin-right: 3px;"></i> Add Investigation </button>
+
+    <button (click)="modifyInvestigation()" class="btn btn--radius-2 btn-primary ">
+        Modify Investigation </button>
+</div> -->
+
+
+
+
+
+
+<div class="home">
+    <div id="home-title"> Home </div>
+</div>
+<div id="button-container">
+
+    <button (click)="addInvestigationRequest()" class="bill-button"> Bill </button>
+    <button (click)="setReport()" class="report-button"> Report </button>
+
+</div>
+
+
+
+
+
+
+<div id="investigationRequest">
+
+    <div style="width: 90%; margin: auto;">
+        <div class="section-title">
+            <h2 id="title-section" style="letter-spacing: 1px; font-size: 22px;">
+                Investigation Request</h2>
+        </div>
+    </div>
+
+    <div id="tableContainer" *ngIf="investigationRequestList != null && investigationRequestList.length > 0">
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Bill Number</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Report</th>
+                <th>Bill Update</th>
+            </tr>
+            <tr *ngFor="let variable of investigationRequestList; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{variable.billNumber}}</td>
+                <td>{{variable.name}}</td>
+                <td>{{variable.mobile}}</td>
+                <td><button class="table-btn"
+                        (click)="OpenInvestigationRequestList(i)">Report</button></td>
+                <td><button class="table-btn"
+                        (click)="billFormPopUp(variable.billNumber)">Bill</button></td>
+            </tr>
+        </table>
+    </div>
+    <div style="height: 50px;"> </div>
+</div>
+
+
+
+
+<div id="investigation-request-list-popup">
+    <a id="investigation-request-list-popup-close">&times;</a>
+
+    <!-- *ngIf="investigationRequestList != null" --> 
+
+    <div style="padding: 0; margin-top: 0px;" id="information-pop-up">
+ 
+        <div style="width: 100%; margin: auto; margin-bottom: 20px;">
+            <div class="section-title" style="margin-top: 0;">
+                <h2 id="title-section">
+                    Investigation Request List</h2>
+            </div>
+        </div>
+
+
+        <div id="pop-up-report-table"*ngIf="investigationRequestList != null && investigationRequestList.length > 0">
+
+
+            <table >
+                <tr>
+                    <th>Number</th>
+                    <th>Department</th>
+                    <th>Investigation</th>
+                    <th>Cost</th>
+                </tr>
+                <tr *ngFor="let select of investigationRequestList[selectedIndex].requestList; index as i">
+                    <td>{{i+1}} </td>
+                    <td>{{select.departmentName}}</td>
+                    <td>{{select.investigationName}}</td>
+                    <td>{{select.rate}}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div id="payment-popup">
+    <a id="payment-popup-close">&times;</a>
+
+    <div style="width: 95%; margin: auto;">
+        <div class="section-title">
+            <h2 *ngIf="investigationRequestList != null" id="title-section">
+                Payment Update</h2>
+        </div>
+    </div>
+
+    <form [formGroup]="billForm" (ngSubmit)="billFormSubmit()">
+        <div class="form-row">
+            <div class="name" style="font-size: 15px; width: 140px;">Bill Amount</div>
+
+            <div class="value">
+                <div class="input-group">
+
+                    <input [ngClass]="{'borderRed' : billForm.get('paymentAmount').errors &&
+                     (billForm.get('paymentAmount').touched || billForm.get('paymentAmount').dirty)}"
+                        formControlName="paymentAmount" class="input--style-5" type="text" id="Amount" name="Amount">
+
+                </div>
+
+
+                <span *ngIf="billForm.get('paymentAmount').errors &&
+                    (billForm.get('paymentAmount').touched || billForm.get('paymentAmount').dirty)">
+                    <span *ngIf="billForm.get('paymentAmount').errors.required">Payment Amount is
+                        required</span>
+                </span>
+            </div>
+
+
+        </div>
+
+        <div id="button-container">
+            <button type="submit" style="margin: 0; padding: 5px 23px;" class="btn-update-payment btn--blue"> Update
+            </button>
+        </div>
+    </form>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="lodingDiv">
+    <i class="fas fa-circle-notch fa-spin"></i>
+    <div> {{loadingMessage}} </div>
+</div>
+
+
+<div id="backgroundloding">
+    <!-- <i style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+font-size: 30px; color: white;" class="fas fa-circle-notch fa-spin"></i> -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- investigation-request Name -->
+<!-- <div>
+    <div id="investigation-request-list-popup">
+        <a id="investigation-request-list-popup-close">&times;</a>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Investigation Name </th>
+                    <th>Category</th>
+                    <th>Cost</th>
+                    <th>Report</th>
+                    <th>Set Report</th>
+                </tr>
+                <tr *ngFor="let variable of popUpInvestigationRequest; let i = index ">
+                    <td>{{variable.investigation.name}}</td>
+                    <td>{{variable.investigation.category.name}}</td>
+                    <td>{{variable.investigation.rate}}</td>
+                    <td><button [disabled]='variable.reportText == null &&  variable.imageFileName == null'
+                            (click)="showReport(i)" type="button" class="btn report btn-primary">Report</button></td>
+           
+                    <td><button (click)="reportFormOpen(variable.id, variable.investigation.format)" type="button"
+                            class="btn report btn-primary">Set
+                            Report</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div> -->
+
+
+
+<!-- <div>
+    <div id="report-info-popup">
+        <a id="report-info-popup-close">&times;</a>
+
+        <div id="service-detail">
+
+            <h2> Report Detail </h2>
+
+            <p><b>Report Result :</b>
+                <span id="showReportText">{{reportText}} </span>
+            </p>
+
+
+
+            <div>
+
+
+                <p *ngIf="extension != null; else reportImageEncode"> <b> Report Image: </b>
+                    <img id="reportImage" [src]="reportimage" alt="fff">
+                </p>
+
+                <ng-template #reportImageEncode>
+                    <p> <b> Report Image: </b> Not Set </p>
+                </ng-template>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div> -->
+
+
+
+
+
+
+<!-- Report Form Pop Up-->
+<div>
+    <div id="report-form-popup">
+        <a id="report-form-popup-close">&times;</a>
+
+
+        <h2 id="report-form"> Set Report </h2>
+
+        <div id="report-formContainer">
+            <form [formGroup]="reportForm" (ngSubmit)="reportFormSubmit(reportForm.value)">
+
+                <!-- [ngClass]="{'borderRed' : reportForm.get('name').errors &&
+                (reportForm.get('name').touched || reportForm.get('name').dirty)}"
+                <span
+                    *ngIf="reportForm.get('name').errors && (reportForm.get('name').touched || reportForm.get('name').dirty)">
+                    <span *ngIf="reportForm.get('name').errors.required">Investigation name is
+                        required</span>
+                </span> -->
+
+                <label style="font-weight: 600;" for="reportText"> Report Result:</label>
+                <textarea [ngClass]="{'borderRed' : reportForm.get('reportText').errors &&
+                (reportForm.get('reportText').touched || reportForm.get('reportText').dirty)}" [value]="format"
+                    placeholder="Report Text.." value="good" formControlName="reportText" id="reportText"></textarea>
+                <span
+                    *ngIf="reportForm.get('reportText').errors && (reportForm.get('reportText').touched || reportForm.get('reportText').dirty)">
+                    <span *ngIf="reportForm.get('reportText').errors.required">Report result is required</span>
+                </span>
+
+                <div> </div>
+
+                <label style="font-weight: 600; margin-top: 10px; margin-bottom: 0px;" for="status">Status:</label>
+                <select style=" border: 1px solid black; margin-top: 0px;" id="status" name="status"
+                    formControlName="status">
+                    <option value="Panding">Panding</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Complete">Complete</option>
+                </select>
+
+                <label style="font-weight: 600;  margin-top: 10px; margin-bottom: 0px;" for="reportFile">Report
+                    Image:</label>
+                <input style=" margin-top: 0px; margin-bottom: 0px;" class="inputfile" type="file"
+                    formControlName="reportImage" (change)="onselectfile($event)" accept=".png, .jpg, .jpeg"
+                    id="reportfile" [ngClass]="{'borderRed' : reportForm.get('reportImage').errors &&
+                (reportForm.get('reportImage').touched || reportForm.get('reportImage').dirty)}">
+                <span
+                    *ngIf="reportForm.get('reportImage').errors && (reportForm.get('reportImage').touched || reportForm.get('reportImage').dirty)">
+                    <span *ngIf="reportForm.get('reportImage').errors.required">Report imgae is required</span>
+                </span>
+                <div> </div>
+
+                <!--
+type="file"  [ngClass]="{'borderRed' : reportForm.get('reportImage').errors &&
+                (reportForm.get('reportImage').touched || reportForm.get('reportImage').dirty)}"
+
+ formControlName="reportImage"   (change)="onselectfile($event)"
+                  accept=".png, .jpg, .jpeg"  id="reportFile"  multiple
+                  [ngClass]="{'borderRed' : reportForm.get('reportText').errors &&
+                (reportForm.get('reportText').touched || reportForm.get('reportText').dirty)}" 
+                  -->
+
+
+
+                <input type="submit" value="Save">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Bill Form -->
+<!-- <div>
+    <div id="bill-form-popup">
+        <a id="bill-form-popup-close">&times;</a>
+
+        <h2 id="Payment-Value"> Payment </h2>
+
+        <div id="report-formContainer">
+            <form [formGroup]="billForm" (ngSubmit)="billFormSubmit()">
+                <label for="fname">Payment Value</label>
+                <input style="border: 1px solid black;" type="text" id="paymentValue" formControlName="paymentValue"
+                    name="paymentValue" placeholder="Payment Value">
+
+                <label for="country">Payment Type</label>
+                <select style="border: 1px solid black;" id="country" name="country" placeholder="show off"
+                    formControlName="paymentType">
+                    <option value="Bkash">Bkash</option>
+                    <option value="Nogod">Nogod</option>
+                    <option value="Rocket">Rocket</option>
+                </select>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </div>
+</div> -->
+
+
+
+
+<!-- Pop up message -->
+
+<div class="popup center border-class">
+
+    <div *ngIf="success; else elseBlock">
+        <div class="icon">
+            <i class="fa fa-check"></i>
+        </div>
+        <div class="title-pop-up">
+            {{message}}
+        </div>
+    </div>
+
+    <ng-template #elseBlock>
+        <div class="icon">
+            <i class="fa fa-exclamation"></i>
+        </div>
+        <div class="title-pop-up">
+            An error is occured
+        </div>
+    </ng-template>
+
+
+
+    <div class="description">
+    </div>
+
+    <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+            Dismiss
+        </button>
+    </div>
+</div>
+<!-- <div class="center">
+    <button (click)="dissmissopen(true, 'Report is seccessfully set')" id="open-popup-btn">
+        Open Popup
+    </button>
+</div> -->

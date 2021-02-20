@@ -1,0 +1,141 @@
+<div id="gmail-popup" class="border-class">
+    <a id="gmail-popup-close">&times;</a>
+
+    <form [formGroup]="billNumberForm" (ngSubmit)="billNumberSubmit(billNumberForm.value)">
+
+
+        <div id="sucessfull-message">
+            <div class="form-row">
+                <div class="name" style="font-size: 15px; width: 140px;">Bill Number</div>
+
+                <div class="value">
+                    <div class="input-group">
+                        <!-- <input [(ngModel)]="billNumber" class="input--style-5" type="text"> -->
+
+
+                        <input [ngClass]="{'borderRed' : billNumberForm.get('billNumber').errors &&
+                         (billNumberForm.get('billNumber').touched || billNumberForm.get('billNumber').dirty)}"
+                            formControlName="billNumber" class="input--style-5" type="text" id="Amount" name="Amount">
+
+                    </div>
+
+
+                    <span *ngIf="billNumberForm.get('billNumber').errors &&
+                        (billNumberForm.get('billNumber').touched || billNumberForm.get('billNumber').dirty)">
+                        <span *ngIf="billNumberForm.get('billNumber').errors.required">Bill
+                            Number is
+                            required</span>
+                    </span>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="form-row">
+                <div class="name" style="font-size: 15px; width: 140px;">Mobile Number</div>
+                <div class="value">
+                    <div class="input-group">
+                        <!-- <input [(ngModel)]="billNumber" class="input--style-5" type="text"> -->
+    
+    
+                        <input [ngClass]="{'borderRed' : billNumberForm.get('mobile').errors &&
+                     (billNumberForm.get('mobile').touched || billNumberForm.get('mobile').dirty)}"
+                            formControlName="mobile" class="input--style-5" type="text" id="mobile" name="mobile">
+    
+                    </div>
+    
+    
+                    <span *ngIf="billNumberForm.get('mobile').errors &&
+                    (billNumberForm.get('mobile').touched || billNumberForm.get('mobile').dirty)">
+                        <span *ngIf="billNumberForm.get('mobile').errors.required">Mobile
+                            Number is
+                            required</span>
+                    </span>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+        <div id="button-container">
+            <button type="button" (click)="billNumberSubmit(billNumberForm.value)" style="margin: 0;" class="btn btn--radius-2 btn--blue"> Verify </button>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<div *ngIf="showTable" id="investigation-content-container">
+
+    <!-- <button (click)="findReport()" class="btn btn--radius-2 btn--blue position">Find Report</button>  -->
+
+    <!-- <h3 class="Select"> Your Investigation Report</h3> -->
+
+    <div style="width: 86%; margin: auto;">
+        <div class="section-title">
+            <h2 id="title-section">Your Investigation Report</h2>
+        </div>
+    </div>
+
+    <div id="tableContainer">
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Department Name</th>
+                <th>Investigation Name</th>
+                <th>Report</th>
+            </tr>
+            <tr *ngFor="let variable of investigationRequestList; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{variable.department}}</td>
+                <td>
+                    <span *ngFor="let InvestigationName of variable.requestList; let j = index ">
+                        {{InvestigationName.investigationName}}<span
+                            *ngIf="variable.requestList.length != (j+1)">,</span>
+                    </span>
+
+                </td>
+                <td><button (click)="downloadPdf(variable.department,variable.requestList[0].investigationRequestId)"
+                        class="btn-download btn--radius-2 btn--blue">
+                        Download</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- <div id="nextbutton">
+        <button (click)="nextPage()" class="btn btn-primary">
+            Next</button>
+    </div> -->
+
+</div>
+
+
+
+<!-- Pop up message -->
+
+<div class="popup center border-class">
+    <div class="icon">
+        <i class="fa fas fa-exclamation-triangle"></i>
+    </div>
+    <div class="title">
+        {{message}}
+    </div>
+    <div class="description">
+    </div>
+    <div class="dismiss-btn">
+        <button id="dismiss-popup-btn">
+            Dismiss
+        </button>
+    </div>
+</div>

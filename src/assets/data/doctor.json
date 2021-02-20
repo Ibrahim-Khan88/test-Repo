@@ -1,0 +1,16 @@
+[
+    {
+        "name": "S K Ballav",
+        "degree": "MBBS, FCPS",
+        "selectionCode" : "009",
+        "description": "SENIOR CONSULTANT",
+        "id": 1
+    },
+    {
+        "name": "Satunu kumar mondal",
+        "degree": "MBBS, FCPS",
+        "selectionCode" : "008",
+        "description": "SENIOR CONSULTANT",
+        "id": 2
+    }
+]

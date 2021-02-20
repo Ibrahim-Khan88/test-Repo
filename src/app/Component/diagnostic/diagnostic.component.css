@@ -1,0 +1,337 @@
+.proxima-nova {
+  font-family: Proxima-Nova;
+  font-weight: 500;
+  font-size: 35px;
+}
+
+#contain {
+  width: 100%;
+}
+
+#slider, #slider1, #slider2, #slider3, #slider4, #slider5, #slider6, #slider7, #slider8, #slider9, #slider10, #slider11, #slider12 {
+  overflow: hidden;
+}
+
+#slider figure, #slider1 figure, #slider2 figure, #slider3 figure, #slider4 figure, #slider5 figure, #slider6 figure, #slider7 figure, #slider8 figure, #slider9 figure, #slider10 figure, #slider11 figure, #slider12 figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 10s slider infinite;
+}
+
+#slider1 figure {
+  animation: 15s slider infinite;
+}
+
+#slider2 figure {
+  animation: 14s slider infinite;
+}
+
+#slider3 figure {
+  animation: 13s slider infinite;
+}
+
+#slider4 figure {
+  animation: 12s slider infinite;
+}
+
+#slider5 figure {
+  animation: 16s slider infinite;
+}
+
+#slider6 figure {
+  animation: 17s slider infinite;
+}
+
+#slider7 figure {
+  animation: 15s slider infinite;
+}
+
+#slider8 figure {
+  animation: 15s slider infinite;
+}
+
+#slider9 figure {
+  animation: 15s slider infinite;
+}
+
+#slider10 figure {
+  animation: 15s slider infinite;
+}
+
+#slider11 figure {
+  animation: 15s slider infinite;
+}
+
+#slider12 figure {
+  animation: 15s slider infinite;
+}
+
+#slider figure img, #slider1 figure img, #slider2 figure img, #slider3 figure img, #slider4 figure img, #slider5 figure img, #slider6 figure img, #slider7 figure img, #slider8 figure img, #slider9 figure img, #slider10 figure img, #slider11 figure img, #slider12 figure img {
+  float: left;
+  height: 150px;
+  width: 20%;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
+
+.productphoto {
+  height: 250px;
+}
+
+.padding-right {
+  padding-right: 0;
+}
+
+.features_items {
+  overflow: hidden;
+}
+
+h2.title, h5.title {
+  color: #FE980F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 15px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.single-products h5, .single-products h6 {
+  color: #FE980F;
+  /* font-family: Copperplate,Noto Sans,-apple-system,BlinkMacSystemFont,sans-serif; */
+  font-family: Copperplate Gothic Light, fantasy;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 15px;
+  letter-spacing: .01em;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+#DepartmentView h3 {
+  font-family: Copperplate, Copperplate Gothic Light, fantasy;
+}
+
+#name {
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 15px;
+  font-family: Proxima-Nova;
+}
+
+.product-image-wrapper {
+  height: 200px;
+  border: 1px solid #F7F7F5;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-top-left-radius: 0.85rem;
+  border-bottom-left-radius: 0.85rem;
+  border-top-right-radius: 0.85rem;
+  border-bottom-right-radius: 0.85rem;
+}
+
+.single-products {
+  position: relative;
+}
+
+.new, .sale {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.productinfo h4 {
+  color: #FE980F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 15px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.product-overlay h2 {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.productinfo p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #696763;
+}
+
+.productinfo img {
+  width: 100%;
+}
+
+.productinfo {
+  position: relative;
+}
+
+.product-overlay {
+  background: #f7f1ea;
+  top: 0;
+  display: none;
+  height: 0;
+  position: absolute;
+  transition: height 500ms ease 0s;
+  width: 100%;
+  display: block;
+}
+
+.btn {
+  width: 90px;
+  line-height: 21px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+#Hospital-List {
+  font-size: 35px;
+  /* background-color: red; */
+  text-align: left;
+  font-weight: 500;
+  font-family: Proxima-Nova;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  border-bottom: 3px solid black;
+  text-underline-position: 10px;
+  display: inline-block;
+}
+
+.single-products:hover .product-overlay {
+  display: block;
+  height: 200px;
+}
+
+.product-overlay .overlay-content {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+}
+
+.product-overlay .add-to-cart {
+  background: #fff;
+  border: 0 none;
+  border-radius: 0;
+  color: #FE980F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.product-overlay .add-to-cart:hover {
+  background: #fff;
+  color: #FE980F;
+}
+
+.product-overlay p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.add-to-cart {
+  background: #F5F5ED;
+  border: 0 none;
+  border-radius: 0;
+  color: #696763;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.add-to-cart:hover {
+  background: #b6b3af;
+  border: 0 none;
+  border-radius: 0;
+  color: #FFFFFF;
+}
+
+.add-to {
+  margin-bottom: 10px;
+}
+
+.add-to-cart i {
+  margin-right: 5px;
+}
+
+.add-to-cart:hover {
+  background: #cac7c2;
+  color: #FFFFFF;
+}
+
+/* "Department View */
+
+#heading {
+  height: 200px;
+  width: 100%;
+  background-color: #e6fffa;
+}
+
+#welcome {
+  margin: auto;
+  top: 20px;
+  text-align: center;
+  padding-top: 20px;
+  font-family: Copperplate, Copperplate Gothic Light, fantasy;
+  letter-spacing: 4px;
+  font-size: 40px;
+}
+
+#DepartmentView, #Achievement, #Teacher {
+  /* background-image: url(/assets/image/background.png); */
+  text-align: center;
+}
+
+#DepartmentView h3, #Achievement h3, #Teacher h3 {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+.size {
+  width: 80%;
+  margin: auto;
+}

@@ -1,0 +1,12 @@
+<div id="main">
+
+    <div *ngIf="!hideheader">
+
+        <app-header  (sideNavClose)="CloseNav($event)" (sideNavOpen)="openNav($event)"></app-header>
+
+    </div> 
+
+    <!-- (sideNavClose)="CloseNav($event)" -->
+
+    <router-outlet></router-outlet>
+</div>
